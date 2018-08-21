@@ -45,6 +45,10 @@ app.get("/index", function(req, res) {
 app.get("/select", function(req, res) {
 
 
+
+
+    res.render();
+
 });
 
 
@@ -52,10 +56,10 @@ app.post('/find', urlencodedParser, function(req, res) {
     var name=req.body.picname;
 
     updateSql.queryAllpic(name,function (data) {
-         res.render('findpic', {
-             pic:data
+        res.render('findpic', {
+            pic:data
 
-         });
+        });
     })
 
 
@@ -123,7 +127,7 @@ app.get("/work", function(req, res) {
     );
 });
 
-app.post('/upload', function (req, res) {
+app.post('/addmusic', function (req, res) {
     var key=new Date();
     var filepath = req.files[0].path;
     var name=req.files[0].originalname;
@@ -160,8 +164,37 @@ app.post('/upload', function (req, res) {
 
         }
     });
+})
+app.post('/addlist', function (req, res) {
+    var key=new Date();
+    var filepath = req.files[0].path;
+    var name=req.body.playlist_name;
+    var label=req.body.label;
+    var amount=Math.floor(Math.random()*64526+1215);
+    var collection=Math.floor(Math.random()*10000+254);
+    // 调用方法
+    // var i=updateSql.inserPlaylist(0,name,key.toLocaleString(),amount,label,collection);
+    // console.log(i)
+
+    cos.putObject({
+        Bucket: "images-1257212633", /* 必须 */ // Bucket 格式：test-1250000000
+        Region: "ap-chengdu",
+        Key: key.toLocaleString(), /* 必须 */
+        TaskReady: function (tid) {
+        },
+        onProgress: function (progressData) {
+        },
+        Body: fs.createReadStream(filepath),
+        ContentLength: fs.statSync(filepath).size
+    }, function (err, data) {
+        if (data.statusCode >= 200){
+            updateSql.inserPlaylist(0,name,key.toLocaleString(),amount,label,collection);
+            res.render('success', {
+                }
+            );
+        }
+    });
 
 
 })
-
 var server = app.listen(8088);
