@@ -12,6 +12,19 @@
     </view>
   </view>
 
+   <view>
+    <swiper indicator-dots="true" class="sroll_top_view" autoplay='true'   >
+ <block wx:for="{{imgUrls}}" wx:key="index">
+
+      <swiper-item>    
+            <image src="{{item}}"></image>
+      </swiper-item>
+
+</block>
+    </swiper>
+
+  </view>
+
   <!-- 歌单推荐 -->
   <view class="main">
     <!-- 歌单推荐顶部 -->
@@ -31,22 +44,22 @@
         <view class="music">
           <image class="play" src='../../imgs/play.png'></image>
           <image class="img" src='../../imgs/test.jpg'></image>
-          <view class="img_text">11111111111111111111111111111111111</view>
+          <view class="img_text">歌单名</view>
         </view>
         <view class="music">
           <image class="play" src='../../imgs/play.png'></image>
           <image class="img" src='../../imgs/test.jpg'></image>
-          <view class="img_text">11111111111111111111111111111111111</view>
+          <view class="img_text">歌单名</view>
         </view>
         <view class="music">
           <image class="play" src='../../imgs/play.png'></image>
           <image class="img" src='../../imgs/test.jpg'></image>
-          <view class="img_text">11111111111111111111111111111111111</view>
+          <view class="img_text">歌单名</view>
         </view>
         <view class="music">
           <image class="play" src='../../imgs/play.png'></image>
           <image class="img" src='../../imgs/test.jpg'></image>
-          <view class="img_text">11111111111111111111111111111111111</view>
+          <view class="img_text">歌单名</view>
         </view>
       </view>
     </scroll-view>
@@ -70,19 +83,39 @@
       <view style='display:inline-block'>
         <view class="videos">
           <video class="video" src="../../蔡徐坤 - Pull Up_m00276ac6gi_3_0 [mqms].mp4" controls></video>
-          <view class="img_text">11111111111111111111111111111111111</view>
+          <view class="song">歌名</view>
+          <view class="singer">歌手</view>
+          <view class="playnum">
+            <image style="width:60rpx;height:60rpx" src="../../imgs/mvplay.png"></image>
+            <view class="plays">播放量</view>
+          </view>
         </view>
         <view class="videos">
           <video class="video" src="../../蔡徐坤 - Pull Up_m00276ac6gi_3_0 [mqms].mp4" controls></video>
-          <view class="img_text">11111111111111111111111111111111111</view>
+          <view class="song">歌名</view>
+          <view class="singer">歌手</view>
+          <view class="playnum">
+            <image style="width:60rpx;height:60rpx" src="../../imgs/mvplay.png"></image>
+            <view class="plays">播放量</view>
+          </view>
         </view>
         <view class="videos">
           <video class="video" src="../../蔡徐坤 - Pull Up_m00276ac6gi_3_0 [mqms].mp4" controls></video>
-          <view class="img_text">11111111111111111111111111111111111</view>
+          <view class="song">歌名</view>
+          <view class="singer">歌手</view>
+          <view class="playnum">
+            <image style="width:60rpx;height:60rpx" src="../../imgs/mvplay.png"></image>
+            <view class="plays">播放量</view>
+          </view>
         </view>
         <view class="videos">
           <video class="video" src="../../蔡徐坤 - Pull Up_m00276ac6gi_3_0 [mqms].mp4" controls></video>
-          <view class="img_text">11111111111111111111111111111111111</view>
+          <view class="song">歌名</view>
+          <view class="singer">歌手</view>
+          <view class="playnum">
+            <image style="width:30rpx;height:30rpx" src="../../imgs/mvplay.png"></image>
+            <view class="plays">播放量</view>
+          </view>
         </view>
       </view>
     </scroll-view>
