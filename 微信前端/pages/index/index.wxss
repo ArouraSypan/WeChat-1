@@ -1,0 +1,132 @@
+/**index.wxss**/
+
+.search {
+  display: flex;
+  align-items: center;
+  width: 750rpx;
+  height: 80rpx;
+  margin-top: -198rpx;
+  background-color: #43be53;
+}
+
+.search_input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5rpx;
+  margin-left: 30rpx;
+  width: 690rpx;
+  height: 50rpx;
+  background-color: #fff;
+}
+
+.input {
+  width: 690rpx;
+  height: 50rpx;
+  font-size: 30rpx;
+  padding-left: 10rpx;
+}
+
+.search_absolute {
+  position: absolute;
+}
+
+.image_absolute {
+  position: absolute;
+  margin-left: -40rpx;
+}
+
+.display_none {
+  display: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 470rpx;
+  width: 750rpx;
+}
+
+.main_top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+}
+
+.front {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Bold_lines {
+  width: 5rpx;
+  height: 30rpx;
+  background-color: #43be53;
+  margin-right: 25rpx;
+}
+
+.front_word {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.more {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 30rpx;
+  color: #43be53;
+}
+
+.scroll_x {
+  width: 750rpx;
+  white-space: nowrap;
+  display: flex;
+  padding-left: 30rpx;
+}
+
+.music {
+  width: 310rpx;
+  height: 440rpx;
+  margin-right: 30rpx;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.img {
+  width: 310rpx;
+  height: 310rpx;
+}
+
+.img_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 20rpx;
+}
+
+.play {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  margin-top:230rpx;
+  margin-left: 230rpx;
+}
+
+.videos {
+  width: 400rpx;
+  height: 500rpx;
+  margin-right: 30rpx;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.video {
+  width: 400rpx;
+  height: 300rpx;
+  
+}

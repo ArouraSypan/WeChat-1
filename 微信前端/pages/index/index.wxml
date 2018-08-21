@@ -1,0 +1,91 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 搜索 -->
+  <view class="search">
+    <view class="search_input">
+      <input bindinput="serviceSelection" class="input">
+      </input>
+      <view class="{{isChecked?'display_none':'image_absolute'}}">
+        <image style="width:30rpx;height:30rpx;margin-right:10rpx;" src="../../imgs/search.png"></image>
+      </view>
+      <view class="{{isChecked?'display_none':'search_absolute'}}" style="color:#a3a3a3;font-size:30rpx;">搜索</view>
+    </view>
+  </view>
+
+  <!-- 歌单推荐 -->
+  <view class="main">
+    <!-- 歌单推荐顶部 -->
+    <view class="main_top">
+      <view class="front">
+        <view class="Bold_lines"></view>
+        <view class="front_word">歌单推荐</view>
+      </view>
+      <view class="more">
+        <navigator url="../recent_release/recent_release" open-type="navigateTo">更多</navigator>
+        <image style="width:24rpx;height:24rpx;margin-left:10rpx;margin-right:30rpx;" src="../../imgs/arrow.png"></image>
+      </view>
+    </view>
+    <!-- 歌单推荐底部 -->
+    <scroll-view class="scroll_x" scroll-x="true" scroll-with-animation="true">
+      <view style='display:inline-block'>
+        <view class="music">
+          <image class="play" src='../../imgs/play.png'></image>
+          <image class="img" src='../../imgs/test.jpg'></image>
+          <view class="img_text">11111111111111111111111111111111111</view>
+        </view>
+        <view class="music">
+          <image class="play" src='../../imgs/play.png'></image>
+          <image class="img" src='../../imgs/test.jpg'></image>
+          <view class="img_text">11111111111111111111111111111111111</view>
+        </view>
+        <view class="music">
+          <image class="play" src='../../imgs/play.png'></image>
+          <image class="img" src='../../imgs/test.jpg'></image>
+          <view class="img_text">11111111111111111111111111111111111</view>
+        </view>
+        <view class="music">
+          <image class="play" src='../../imgs/play.png'></image>
+          <image class="img" src='../../imgs/test.jpg'></image>
+          <view class="img_text">11111111111111111111111111111111111</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 精选MV -->
+  <view class="main">
+    <!-- 精选MV顶部 -->
+    <view class="main_top">
+      <view class="front">
+        <view class="Bold_lines"></view>
+        <view class="front_word">精选MV</view>
+      </view>
+      <view class="more">
+        <navigator url="../recent_release/recent_release" open-type="navigateTo">更多</navigator>
+        <image style="width:24rpx;height:24rpx;margin-left:10rpx;margin-right:30rpx;" src="../../imgs/arrow.png"></image>
+      </view>
+    </view>
+    <!-- 精选MV底部 -->
+    <scroll-view class="scroll_x" scroll-x="true" scroll-with-animation="true">
+      <view style='display:inline-block'>
+        <view class="videos">
+          <video class="video" src="../../蔡徐坤 - Pull Up_m00276ac6gi_3_0 [mqms].mp4" controls></video>
+          <view class="img_text">11111111111111111111111111111111111</view>
+        </view>
+        <view class="videos">
+          <video class="video" src="../../蔡徐坤 - Pull Up_m00276ac6gi_3_0 [mqms].mp4" controls></video>
+          <view class="img_text">11111111111111111111111111111111111</view>
+        </view>
+        <view class="videos">
+          <video class="video" src="../../蔡徐坤 - Pull Up_m00276ac6gi_3_0 [mqms].mp4" controls></video>
+          <view class="img_text">11111111111111111111111111111111111</view>
+        </view>
+        <view class="videos">
+          <video class="video" src="../../蔡徐坤 - Pull Up_m00276ac6gi_3_0 [mqms].mp4" controls></video>
+          <view class="img_text">11111111111111111111111111111111111</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+</view>

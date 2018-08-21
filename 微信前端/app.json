@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/mine/mine"
+  ],
+  "tabBar": {
+    "color": "#a3a3a3",
+    "selectedColor": "#43be53",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "imgs/find_active.png",
+        "iconPath": "imgs/find.png",
+        "pagePath": "pages/index/index",
+        "text": "发现"
+      },
+      {
+        "selectedIconPath": "imgs/mine_active.png",
+        "iconPath": "imgs/mine.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#43be53",
+    "navigationBarTitleText": "听音乐",
+    "navigationBarTextStyle": "black"
+  }
+}
