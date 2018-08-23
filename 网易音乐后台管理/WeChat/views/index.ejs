@@ -1,400 +1,2517 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="ch">
+
 <head>
-<title>Home</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
-<script src="js/login.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-<!-- the jScrollPane script -->
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<!-- the jScrollPane script -->
-<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-<script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="左右结构项目，属于大人员的社交工具">
+    <meta name="keywords" content="左右结构项目 社交 占座 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>QQ音乐后台管理</title>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/webuploader/0.1.1/webuploader.css">
+    <script src="https://cdn.staticfile.org/webuploader/0.1.1/webuploader.min.js"></script>
+    <script src="https://cdn.staticfile.org/webuploader/0.1.1/Uploader.swf"></script>
+
+    <style>
+        .omit {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            $(".meun-item").click(function() {
+                $(".meun-item").removeClass("meun-item-active");
+                $(this).addClass("meun-item-active");
+                var itmeObj = $(".meun-item").find("img");
+                itmeObj.each(function() {
+                    var items = $(this).attr("src");
+                    items = items.replace("_grey.png", ".png");
+                    items = items.replace(".png", "_grey.png")
+                    $(this).attr("src", items);
+                });
+                var attrObj = $(this).find("img").attr("src");
+                ;
+                attrObj = attrObj.replace("_grey.png", ".png");
+                $(this).find("img").attr("src", attrObj);
+            });
+            $("#topAD").click(function() {
+                $("#topA").toggleClass(" glyphicon-triangle-right");
+                $("#topA").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $("#topBD").click(function() {
+                $("#topB").toggleClass(" glyphicon-triangle-right");
+                $("#topB").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $("#topCD").click(function() {
+                $("#topC").toggleClass(" glyphicon-triangle-right");
+                $("#topC").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $(".toggle-btn").click(function() {
+                $("#leftMeun").toggleClass("show");
+                $("#rightContent").toggleClass("pd0px");
+            })
+        })
+    </script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/slide.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.nouislider.css">
 </head>
+
 <body>
-<div class="header">	
-  <div class="wrap"> 
-	  <div class="header-top">
-		  <div class="header-left">
-			 <div class="logo">
-				<a href="index">ne<img src="images/logo.png" alt=""/></a>
-			 </div>
-			 <div class="cssmenu">
-				<ul>
-					 <li class="active"><a href="index"><span>Home</span></a></li>
-					 <li><a href="products"><span>Products</span></a></li>
-					 <li><a href="services"><span>Services</span></a></li>
-					 <li class="has-sub"><a href="work"><span>My Work</span></a></li>
-					 <li class="last"><a href="contact"><span>Contact</span></a></li>
-					 <div class="clear"></div>
-				</ul>
-		    </div>
-	      </div>
-		  <div class="header-right">
-			<div id="loginContainer">
-				 <span>Join NewsLetter Here.Ma Pimps</span><a id="loginButton"><img src="images/plus.png" alt="" /></a>   
-				     <div id="loginBox">                
-				          <form id="loginForm">
-				             <div>
-						    	<span><label>E-Mail</label></span>
-						    	<span><input name="userEmail" type="text" class="textbox"></span>
-						     </div>
-							 <div>
-						   		<span><input type="submit" value="Subscribe"></span>
-						     </div>
-					      </form>
-				      </div>
-			  </div>
-		    </div>
-		    <div class="clear"></div> 
-	   </div>
-	   <div class="header-bottom">
-	   	   <ul class="follow_icon">
-				 <li><a href="#" style="opacity: 1;"><img src="images/fb.png" alt=""></a></li>
-				 <li><a href="#" style="opacity: 1;"><img src="images/tw.png" alt=""></a></li>
-				 <li><a href="#" style="opacity: 1;"><img src="images/rss.png" alt=""></a></li>
-		   </ul>
-		   <div class="banner-img">
-		   		<img src="images/banner.png" alt=""/>
-		   </div>
-		   <div class="clear"></div> 
-	  </div>
-   </div>	
+<div id="wrap">
+    <!-- 左侧菜单栏目块 -->
+    <div class="leftMeun" id="leftMeun">
+        <div id="logoDiv">
+            <p id="logoP"><img id="logo" alt="QQ音乐后台管理" src="images/logo.png"><span>QQ音乐后台管理</span></p>
+        </div>
+        <div id="personInfor">
+            <p id="userName">杨鹏</p>
+            <p><span>yangxp@qq.com</span> More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+            <p>
+                <a>退出登录</a>
+            </p>
+        </div>
+        <div class="meun-title">歌曲管理</div>
+        <div class="meun-item meun-item-active" href="#sour" aria-controls="sour" role="tab" data-toggle="tab"><img src="images/favicon.ico">歌单管理</div>
+        <div class="meun-item" href="#char" aria-controls="char" role="tab" data-toggle="tab" onclick="Song()"><img src="images/favicon.ico">歌曲管理</div>
+        <div class="meun-item" href="#user" aria-controls="user" role="tab" data-toggle="tab" onclick="Mv()"><img src="images/favicon.ico">MV管理</div>
+        <div class="meun-item" href="#chan" aria-controls="chan" role="tab" data-toggle="tab" onclick="Album()"><img src="images/favicon.ico">专辑管理</div>
+        <div class="meun-title">地区管理</div>
+        <div class="meun-item" href="#scho" aria-controls="scho" role="tab" data-toggle="tab"><img src="images/icon_house_grey.png">地区管理</div>
+        <div class="meun-item" href="#regu" aria-controls="regu" role="tab" data-toggle="tab"><img src="images/icon_rule_grey.png">规则管理</div>
+        <div class="meun-item" href="#stud" aria-controls="stud" role="tab" data-toggle="tab"><img src="images/icon_card_grey.png">人员信息</div>
+        <div class="meun-item" href="#sitt" aria-controls="sitt" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">座位管理</div>
+    </div>
+    <!-- 右侧具体内容栏目 -->
+    <div id="rightContent">
+        <a class="toggle-btn" id="nimei">
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </a>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- 歌单管理模块 -->
+            <div role="tabpanel" class="tab-pane active" id="sour">
+
+                <div class="check-div">
+                    <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addSour">添加歌单</button>
+                </div>
+                <div class="data-div">
+                    <div class="row tableHeader">
+                        <div class="col-xs-3">
+                            歌单名称
+                        </div>
+                        <div class="col-xs-2">
+                            歌单封面
+                        </div>
+                        <div class="col-xs-3">
+                            标签
+                        </div>
+                        <div class="col-xs-1">
+                            播放量
+                        </div>
+                        <div class="col-xs-1">
+                            收藏量
+                        </div>
+                        <div class="col-xs-2">
+                            操作
+                        </div>
+                    </div>
+                    <div id="Playlist" class="tablebody">
+                        <%for(var i=0;i<data.length;i++) { %>
+                        <%if(data[i].playlist_name!=null){%>
+                        <div class="row playlist<%=data[i].playlist_id%>">
+                            <div title="<%=data[i].playlist_name%>" class="col-xs-3 omit">
+                                <%=data[i].playlist_name%>
+                            </div>
+                            <div class="col-xs-2 omit">
+                                <img height="40px" src="<%=data[i].playlist_pic%>" alt="">
+                            </div>
+                            <div title="<%=data[i].playlist_label%>" class="col-xs-3 omit">
+                                <%=data[i].playlist_label%>
+                            </div>
+                            <div title="<%=data[i].playlist_amount%>" class="col-xs-1 omit">
+                                <%=data[i].playlist_amount%>
+                            </div>
+                            <div title="<%=data[i].playlist_collection%>" class="col-xs-1 omit">
+                                <%=data[i].playlist_collection%>
+                            </div>
+
+                            <div class="col-xs-2">
+                                <button onclick="alertPlaylist(<%=data[i].playlist_id%>)" class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSour">修改</button>
+                                <button onclick="deletePlaylist(<%=data[i].playlist_id%>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSour">删除</button>
+                            </div>
+                        </div>
+                        <%}}%>
+                    </div>
+
+                </div>
+                <!--页码块-->
+                <footer class="footer">
+                    <ul class="pagination">
+                        <li>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                            页
+                        </li>
+                        <li class="gray">
+                            共20页
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-left">
+                            </i>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-right">
+                            </i>
+                        </li>
+                    </ul>
+                </footer>
+                <!--添加歌单弹出窗口-->
+                <!--<form action="/addlist" method="post" enctype="multipart/form-data">-->
+                <div class="modal fade" id="addSour" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">添加歌单</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="addPlayName" class="col-xs-3 control-label">歌单名称：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="addPlayName" name="name" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sLink" class="col-xs-3 control-label">上传封面：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="file" id="fulAvatar" name="image" size="50" />
+                                                <input type="button" onclick="inputchange()" value="上传文件" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="addPlayLabel" class="col-xs-3 control-label">标签：</label>
+                                            <div class="col-xs-6">
+                                                <input type="text" class="form-control input-sm duiqi" id="addPlayLabel" name="label" placeholder="">
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="addPlaylistmiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="addPlaylistsave"  type="submit" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!--</form>-->
+                <!-- /.modal -->
+
+                <!--修改歌单弹出窗口-->
+                <div class="modal fade" id="changeSour" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">修改歌单</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="alertPlayName" class="col-xs-3 control-label">歌单名称：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="alertPlayName" placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sLink" class="col-xs-3 control-label">上传封面：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="file" id="fulAvatarPlaylist" name="image" size="50" />
+                                                <input type="button" id="Playlistchange" value="上传文件" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="alertPlayLabel" class="col-xs-3 control-label">标签：</label>
+                                            <div class="col-xs-6">
+                                                <input type="text" class="form-control input-sm duiqi" id="alertPlayLabel" placeholder="">
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="alertPlaylistmiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="alertPlaylistsave" type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--弹出删除歌单警告窗口-->
+                <div class="modal fade" id="deleteSour" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    确定要删除该权限？删除后不可恢复！
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="deletePlaylistmiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button  id="deletePlaylistsave" type="button" class="btn btn-xs btn-danger">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+            </div>
+
+            <!-- 歌曲管理管理模块 -->
+            <div role="tabpanel" class="tab-pane" id="char">
+
+                <div class="check-div">
+                    <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addChar">添加歌曲</button>
+                </div>
+                <div class="data-div">
+                    <div class="row tableHeader">
+                        <div class="col-xs-1">
+                            歌曲名
+                        </div>
+                        <div class="col-xs-1">
+                            歌手
+                        </div>
+                        <div class="col-xs-1">
+                            语种
+                        </div>
+                        <div class="col-xs-1">
+                            播放量
+                        </div>
+                        <div class="col-xs-1">
+                            收藏量
+                        </div>
+                        <div class="col-xs-1">
+                            所属专辑
+                        </div>
+                        <div class="col-xs-3">
+                            所属歌单
+                        </div>
+                        <div class="col-xs-3">
+                            操作
+                        </div>
+                    </div>
+                    <div id="Selectsong" class="tablebody">
+
+                    </div>
+
+                </div>
+                <!--页码块-->
+                <footer class="footer">
+                    <ul class="pagination">
+                        <li>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                            页
+                        </li>
+                        <li class="gray">
+                            共20页
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-left">
+                            </i>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-right">
+                            </i>
+                        </li>
+                    </ul>
+                </footer>
+                <!--添加歌曲弹出窗口-->
+                <div class="modal fade" id="addChar" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">添加歌曲</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="SongName" class="col-xs-3 control-label">歌曲名称：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="SongName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="SingerName" class="col-xs-3 control-label">歌手：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="SingerName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="SongLanguages" class="col-xs-3 control-label">语种：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="SongLanguages" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="SongAlbum" class="col-xs-3 control-label">所属专辑：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="SongAlbum" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sLink" class="col-xs-3 control-label">上传歌曲：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="file" id="fulAvatarSong" name="image" size="50" />
+                                                <input type="button" id="Playlistchange" value="上传歌曲" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="specie_miss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button onclick="addspecie()" type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--添加歌单弹出窗口-->
+                <div class="modal fade" id="addPlaylist" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">添加歌单</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="kindName" class="col-xs-3 control-label">选择歌单：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="kindName" placeholder="">
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="specie_miss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button onclick="addspecie()" type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--修改歌曲弹出窗口-->
+                <div class="modal fade" id="changeChar" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">修改种类</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="speciename" class="col-xs-3 control-label">种类名：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="speciename">
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="speciemiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="alterspecie" type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--弹出删除歌曲警告窗口-->
+                <div class="modal fade" id="deleteChar" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    确定要删除该种类？删除后不可恢复！
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="delespecie" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="deleteonclickspecie" type="button" class="btn btn-xs btn-danger">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+            </div>
+
+            <!--MV管理模块-->
+            <div role="tabpanel" class="tab-pane" id="user">
+                <div class="check-div form-inline">
+                    <div class="col-xs-3">
+                        <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addUser">添加MV </button>
+                    </div>
+
+                </div>
+                <div class="data-div">
+                    <div class="row tableHeader">
+                        <div class="col-xs-2 ">
+                            MV名称
+                        </div>
+                        <div class="col-xs-4">
+                            MV简介
+                        </div>
+                        <div class="col-xs-4">
+                            MV
+                        </div>
+                        <div class="col-xs-2">
+                            操作
+                        </div>
+                    </div>
+                    <div id="selectMv" class="tablebody">
+
+                    </div>
+
+                </div>
+                <!--页码块-->
+                <footer class="footer">
+                    <ul class="pagination">
+                        <li>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                            页
+                        </li>
+                        <li class="gray">
+                            共20页
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-left">
+                            </i>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-right">
+                            </i>
+                        </li>
+                    </ul>
+                </footer>
+
+                <!--弹出添加MV窗口-->
+                <div class="modal fade" id="addUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">添加MV</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="playlistName" class="col-xs-3 control-label">MV名称：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="mvName" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="playlistInfor" class="col-xs-3 control-label">MV介绍：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="mvInfor" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="playlistSinger" class="col-xs-3 control-label"> MV地址：</label>
+                                            <div class="col-xs-8">
+                                                <input type="text" class="form-control input-sm duiqi" id="mvaddress">
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="addMvmiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button onclick="addMV()"  type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--弹出修改MV窗口-->
+                <div class="modal fade" id="reviseUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">修改MV</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="mvalertName" class="col-xs-3 control-label">MV名称：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="mvalertName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="mvalertInfor" class="col-xs-3 control-label">MV介绍：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="mvalertInfor" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="mvalertAdress" class="col-xs-3 control-label">MV地址：</label>
+                                            <div class="col-xs-8">
+                                                <input type="text" class="form-control input-sm duiqi" id="mvalertAdress" placeholder="">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="alertMVmiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="alertMVsave" type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--弹出删除MV警告窗口-->
+                <div class="modal fade" id="deleteUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    确定要删除该MV？删除后不可恢复！
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="deleMiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="deleMissSave" type="button" class="btn  btn-xs btn-danger">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+            </div>
+
+            <!-- 专辑管理模块 -->
+            <div role="tabpanel" class="tab-pane" id="chan">
+
+                <div class="check-div form-inline">
+                    <div class="col-xs-3">
+                        <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addSchool">添加专辑</button>
+                    </div>
+                </div>
+                <div class="data-div">
+                    <div class="row tableHeader">
+                        <div class="col-xs-10 ">
+                            专辑名称
+                        </div>
+                        <div class="col-xs-2">
+                            操作
+                        </div>
+                    </div>
+                    <div id="selectAlbum" class="tablebody">
+                    </div>
+
+                </div>
+                <!--页码块-->
+                <footer class="footer">
+                    <ul class="pagination">
+                        <li>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                            页
+                        </li>
+                        <li class="gray">
+                            共20页
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-left">
+                            </i>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-right">
+                            </i>
+                        </li>
+                    </ul>
+                </footer>
+
+                <!--弹出添加专辑窗口-->
+                <div class="modal fade" id="addSchool" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">添加专辑</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">专辑名称：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="albumName" placeholder="请输入专辑名称">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="missAlbum" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button onclick="addAlbum()" type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--弹出修改专辑窗口-->
+                <div class="modal fade" id="reviseSchool" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">修改专辑</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">专辑名称：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="AlbumName" placeholder="">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="alertAlbummiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="alertAlbumsave" type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--弹出删除专辑警告窗口-->
+                <div class="modal fade" id="deleteSchool" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    确定要删除该专辑？删除后不可恢复！
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="missAlbumdele" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="saveAlbumdele" type="button" class="btn btn-xs btn-danger">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+            </div>
+
+            <!--地区管理模块-->
+            <div role="tabpanel" class="tab-pane" id="scho">
+
+                <div class="check-div form-inline">
+                    <div class="col-xs-3">
+                        <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addSchool">添加地区 </button>
+                    </div>
+                    <div class="col-lg-4 col-xs-5">
+                        <input type="text" class=" form-control input-sm " placeholder="输入文字搜索">
+                        <button class="btn btn-white btn-xs ">查 询 </button>
+                    </div>
+                    <div class="col-lg-3 col-lg-offset-1 col-xs-3" style="padding-right: 40px;text-align: right;float: right;">
+                        <label for="paixu">排序:&nbsp;</label>
+                        <select class="form-control">
+                            <option>地区</option>
+                            <option>排名</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="data-div">
+                    <div class="row tableHeader">
+                        <div class="col-xs-1 ">
+                            编码
+                        </div>
+                        <div class="col-xs-2 ">
+                            地区
+                        </div>
+                        <div class="col-xs-1">
+                            经度
+                        </div>
+                        <div class="col-xs-1">
+                            维度
+                        </div>
+                        <div class="col-xs-2">
+                            建筑信息
+                        </div>
+                        <div class="col-xs-2">
+                            人员列表
+                        </div>
+                        <div class="col-xs-2">
+                            操作
+                        </div>
+                    </div>
+                    <div class="tablebody">
+
+                        <div class="row">
+                            <div class="col-xs-1 ">
+                                1
+                            </div>
+                            <div class="col-xs-2">
+                                国际关系地区
+                            </div>
+                            <div class="col-xs-1">
+                                45.0
+                            </div>
+                            <div class="col-xs-1">
+                                95.90
+                            </div>
+                            <div class="col-xs-2">
+                                <a class="linkCcc">查看</a>
+                            </div>
+                            <div class="col-xs-2">
+                                <a class="linkCcc">查看</a>
+                            </div>
+                            <div class="col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseSchool">修改</button>
+                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSchool">删除</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--页码块-->
+                <footer class="footer">
+                    <ul class="pagination">
+                        <li>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                            页
+                        </li>
+                        <li class="gray">
+                            共20页
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-left">
+                            </i>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-right">
+                            </i>
+                        </li>
+                    </ul>
+                </footer>
+
+                <!--弹出添加用户窗口-->
+                <div class="modal fade" id="addSchool" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">添加地区</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">地区名称：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">经度：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sLink" class="col-xs-3 control-label">纬度：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sOrd" class="col-xs-3 control-label">简称：</label>
+                                            <div class="col-xs-8">
+                                                <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--弹出修改用户窗口-->
+                <div class="modal fade" id="reviseSchool" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">修改地区</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">地区名称：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">经度：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sLink" class="col-xs-3 control-label">纬度：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sOrd" class="col-xs-3 control-label">简称：</label>
+                                            <div class="col-xs-8">
+                                                <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--弹出删除用户警告窗口-->
+                <div class="modal fade" id="deleteSchool" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    确定要删除该地区？删除后不可恢复！
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button type="button" class="btn btn-xs btn-danger">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+            </div>
+            <!--规则管理模块-->
+            <div role="tabpanel" class="tab-pane" id="regu" style="padding-top: 50px;">
+                <div class="data-div">
+                    <div class="tablebody col-lg-10 col-lg-offset-1">
+                        <div class="row">
+                            <div class="col-xs-3" style="padding-right: 0;">签到超时时间</div>
+                            <div class="col-xs-7 expand-col">
+                                <div class="slider-minmax1">
+                                </div>
+                                <div class="row top100">
+                                    <span class="left">0</span>
+                                    <span class="right">30</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <button class="btn btn-xs btn-white">默认值</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3" style="padding-right: 0;">抢座超时时间</div>
+                            <div class="col-xs-7 expand-col">
+                                <div class="slider-minmax2">
+                                </div>
+                                <div class="row top100">
+                                    <span class="left">0</span>
+                                    <span class="right">15</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <button class="btn btn-xs btn-white">默认值</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3" style="padding-right: 0;">临时离开超时时间</div>
+                            <div class="col-xs-7 expand-col">
+                                <div class="slider-minmax3">
+                                </div>
+                                <div class="row top100">
+                                    <span class="left">0</span>
+                                    <span class="right">60</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <button class="btn btn-xs btn-white">默认值</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3" style="padding-right: 0;">违约次数冻结上限</div>
+                            <div class="col-xs-7 expand-col">
+                                <div class="slider-minmax4">
+                                </div>
+                                <div class="row top100">
+                                    <span class="left">0</span>
+                                    <span class="right">100</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <button class="btn btn-xs btn-white">默认值</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3" style="padding-right: 0;">可预约天数</div>
+                            <div class="col-xs-7 expand-col">
+                                <div class="slider-minmax5">
+                                </div>
+                                <div class="row top100">
+                                    <span class="left">0</span>
+                                    <span class="right">7</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <button class="btn btn-xs btn-white">默认值</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3" style="padding-right: 0;">最大未完成预约数</div>
+                            <div class="col-xs-7 expand-col">
+                                <div class="slider-minmax6">
+                                </div>
+                                <div class="row top100">
+                                    <span class="left">0</span>
+                                    <span class="right">10</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <button class="btn btn-xs btn-white">默认值</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                            <button type="button" class="btn btn-xs btn-green">保 存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--时间段管理模块-->
+            <div role="tabpanel" class="tab-pane" id="time">
+                <div class="check-div form-inline">
+                    <span href="#sitt" aria-controls="sitt" role="tab" data-toggle="tab" style="cursor: pointer;"><span class="glyphicon glyphicon glyphicon-chevron-left"></span>&nbsp;&nbsp;返回上一页</span>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-yellow btn-xs " data-toggle="modal" data-target="#addTime">添加时间段 </button>
+
+                </div>
+                <div class="data-div">
+                    <div class="row tableHeader">
+                        <div class="col-xs-3 ">
+                            编码
+                        </div>
+                        <div class="col-xs-3">
+                            开始
+                        </div>
+                        <div class="col-xs-3">
+                            结束
+                        </div>
+
+                        <div class="col-xs-3">
+                            操作
+                        </div>
+                    </div>
+                    <div class="tablebody">
+
+                        <div class="row">
+                            <div class="col-xs-3 ">
+                                6426398978
+                            </div>
+                            <div class="col-xs-3">
+                                10:10
+                            </div>
+                            <div class="col-xs-3">
+                                19:30
+                            </div>
+                            <div class="col-xs-3">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeTime">修改</button>
+                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteTime">删除</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--页码块-->
+                <footer class="footer">
+                    <ul class="pagination">
+                        <li>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                            页
+                        </li>
+                        <li class="gray">
+                            共20页
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-left">
+                            </i>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-right">
+                            </i>
+                        </li>
+                    </ul>
+                </footer>
+
+                <!--弹出增加时间段窗口-->
+                <div class="modal fade" id="addTime" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">时间段设置</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">开始时间：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="email" class="form-control input-sm" id="sName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">结束时间：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="email" class="form-control input-sm" id="sName" placeholder="">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--修改增加时间段窗口-->
+                <div class="modal fade" id="changeTime" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">修改时间段</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">开始时间：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">结束时间：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button type="button" class="btn btn-green btn-xs">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+                <!--弹出删除时间段警告窗口-->
+                <div class="modal fade" id="deleteTime" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    确定要删除该时间段？
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button type="button" class="btn btn-danger btn-xs">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+            </div>
+            <!--座位管理模块-->
+            <div role="tabpanel" class="tab-pane" id="sitt">
+
+                <div class="check-div form-inline" style="">
+                    <div class="col-lg-4 col-xs-7 col-md-6">
+                        <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addBuilding">添加楼宇 </button>
+                        <label for="paixu">楼宇:&nbsp;</label>
+                        <select class=" form-control">
+                            <option>第一教学楼</option>
+                            <option>逸夫楼</option>
+                            <option>综合楼</option>
+                            <option>图书馆</option>
+                        </select>
+                        <button class="btn btn-white btn-xs ">修 改</button>
+                    </div>
+                    <div class="col-lg-4 col-lg-offset-4 col-xs-4 col-md-5 " style="padding-right: 40px;text-align: right;">
+                        <input type="text" class=" form-control input-sm " placeholder="输入文字搜索">
+                        <button class="btn btn-white btn-xs ">查 询 </button>
+                    </div>
+                </div>
+                <div class="data-div">
+                    <div class="row tableHeader">
+                        <div class="col-xs-2 "style="padding-left: 20px;">
+                            楼层
+                        </div>
+                        <div class="col-xs-3"style="padding-left: 20px;">
+                            区域
+                        </div>
+                        <div class="col-xs-2" style="padding-left: 2px;">
+                            座位数
+                        </div>
+                        <div class="col-xs-2">
+                            空余座位
+                        </div>
+                        <div class="col-xs-3">
+                            操作
+                        </div>
+                    </div>
+                    <div class="tablebody">
+
+                        <div class="sitTable">
+                            <table class="table  table-responsive">
+                                <tr>
+                                    <td valign="middle" class="col-xs-2" rowspan="3">图书馆第一层</td>
+                                    <td class="col-xs-3">第一自习室</td>
+                                    <td class="col-xs-2">2</td>
+                                    <td class="col-xs-2" style="padding-left: 40px!important;">3</td>
+                                    <td class="col-xs-3"style="padding-left: 50px!important;">
+                                        <a class="linkCcc" href="#sitDetail" aria-controls="char" role="tab" data-toggle="tab">座位信息</a>
+                                        <a class="linkCcc" href="#time" aria-controls="char" role="tab" data-toggle="tab">时间段设置</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-xs-3">第一自习室</td>
+                                    <td class="col-xs-2">2</td>
+                                    <td class="col-xs-2" style="padding-left: 40px!important;">3</td>
+                                    <td class="col-xs-3"style="padding-left: 50px!important;">
+                                        <a class="linkCcc" href="#sitDetail" aria-controls="char" role="tab" data-toggle="tab">座位信息</a>
+                                        <a class="linkCcc" href="#time" aria-controls="char" role="tab" data-toggle="tab">时间段设置</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-xs-3">第一自习室</td>
+                                    <td class="col-xs-2">2</td>
+                                    <td class="col-xs-2" style="padding-left: 40px!important;">3</td>
+                                    <td class="col-xs-3"style="padding-left: 50px!important;">
+                                        <a class="linkCcc" href="#sitDetail" aria-controls="char" role="tab" data-toggle="tab">座位信息</a>
+                                        <a class="linkCcc" href="#time" aria-controls="char" role="tab" data-toggle="tab">时间段设置</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--页码块-->
+                <footer class="footer">
+                    <ul class="pagination">
+                        <li>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                            页
+                        </li>
+                        <li class="gray">
+                            共20页
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-left">
+                            </i>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-right">
+                            </i>
+                        </li>
+                    </ul>
+                </footer>
+
+                <!--弹出添加楼宇窗口-->
+                <div class="modal fade" id="addBuilding" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">添加楼宇</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">楼层：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sLink" class="col-xs-3 control-label">区域：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sOrd" class="col-xs-3 control-label">座位数：</label>
+                                            <div class="col-xs-8">
+                                                <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--弹出修改用户窗口-->
+                <div class="modal fade" id="reviseUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">修改用户</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group ">
+                                            <label for="sName" class="col-xs-3 control-label">用户名：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="email" class="form-control input-sm" id="sName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
+                                            <div class="col-xs-8 ">
+                                                <input type="" class="form-control input-sm" id="sLink" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
+                                            <div class="col-xs-8">
+                                                <input type="" class="form-control input-sm" id="sOrd" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sKnot" class="col-xs-3 control-label">电话：</label>
+                                            <div class="col-xs-8">
+                                                <input type="" class="form-control input-sm" id="sKnot" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sKnot" class="col-xs-3 control-label">地区：</label>
+                                            <div class="col-xs-8">
+                                                <input type="" class="form-control input-sm" id="sKnot" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sKnot" class="col-xs-3 control-label">权限：</label>
+                                            <div class="col-xs-8">
+                                                <input type="" class="form-control input-sm" id="sKnot" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="situation" class="col-xs-3 control-label">状态：</label>
+                                            <div class="col-xs-8">
+                                                <label class="control-label" for="anniu">
+                                                    <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label class="control-label" for="meun">
+                                                    <input type="radio" name="situation" id="forbid"> 禁用</label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button type="button" class="btn btn-xs btn-green">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!--弹出删除用户警告窗口-->
+                <div class="modal fade" id="deleteUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    确定要删除该用户？删除后不可恢复！
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button type="button" class="btn btn-green btn-xs">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+            </div>
+            <!--座位详情模块-->
+            <div role="tabpanel" class="tab-pane" id="sitDetail">
+                <div class="check-div form-inline">
+                    <span href="#sitt" aria-controls="sitt" role="tab" data-toggle="tab" style="cursor: pointer;"><span class="glyphicon glyphicon glyphicon-chevron-left"></span>&nbsp;&nbsp;返回上一页</span>
+                </div>
+                <div class="data-div">
+                    <div class="row tableHeader">
+                        <div class="col-xs-6 ">
+                            座位编码
+                        </div>
+                        <div class="col-xs-6 ">
+                            座位名称
+                        </div>
+
+                    </div>
+                    <div class="tablebody">
+
+                        <div class="row">
+                            <div class="col-xs-6 ">
+                                sad2345fas345533
+                            </div>
+                            <div class="col-xs-6">
+                                王座
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--页码块-->
+                <footer class="footer">
+                    <ul class="pagination">
+                        <li>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                            页
+                        </li>
+                        <li class="gray">
+                            共20页
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-left">
+                            </i>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-right">
+                            </i>
+                        </li>
+                    </ul>
+                </footer>
+
+            </div>
+            <!--人员管理模块-->
+            <div role="tabpanel" class="tab-pane" id="stud">
+                <div class="check-div form-inline">
+                    <div class="col-xs-5">
+                        <input type="text" class=" form-control input-sm" placeholder="输入文字搜索" style="	!height: 40px!important;">
+                        <button class="btn btn-white btn-xs ">查 询 </button>
+                    </div>
+                    <div class="col-xs-4 col-lg-4  col-md-5" style="padding-right: 40px;text-align: right;float: right;">
+                        <label for="daoru">导入人员信息表:&nbsp;</label>
+                        <button class="btn btn-white btn-xs " id="daoru">选取文件 </button>
+                        <button class="btn btn-white btn-xs ">导入 </button>
+                    </div>
+
+                </div>
+                <div class="data-div">
+                    <div class="row tableHeader">
+                        <div class="col-xs-2 ">
+                            学号
+                        </div>
+                        <div class="col-xs-1 ">
+                            姓名
+                        </div>
+                        <div class="col-xs-2">
+                            院系
+                        </div>
+                        <div class="col-xs-2">
+                            年年
+                        </div>
+                        <div class="col-xs-2 ">
+                            学习时长
+                        </div>
+                        <div class="col-xs-2">
+                            违约次数
+                        </div>
+                        <div class="col-xs-1">
+                            操作
+                        </div>
+                    </div>
+                    <div class="tablebody">
+
+                        <div class="row">
+                            <div class="col-xs-2 ">
+                                6426398978
+                            </div>
+                            <div class="col-xs-1">
+                                邓超
+                            </div>
+                            <div class="col-xs-2">
+                                计算机地区
+                            </div>
+                            <div class="col-xs-2">
+                                2013年
+                            </div>
+                            <div class="col-xs-2">
+                                15
+                            </div>
+                            <div class="col-xs-2">
+                                2
+                            </div>
+                            <div class="col-xs-1">
+                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteObey">清除违约</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--页码块-->
+                <footer class="footer">
+                    <ul class="pagination">
+                        <li>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                            页
+                        </li>
+                        <li class="gray">
+                            共20页
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-left">
+                            </i>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-menu-right">
+                            </i>
+                        </li>
+                    </ul>
+                </footer>
+
+                <!--弹出删除违约记录警告窗口-->
+
+                <div class="modal fade" id="deleteObey" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">提示</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    确定要删除该违约记录？删除后不可恢复！
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button type="button" class="btn btn-xs btn-danger">保 存</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+            </div>
+        </div>
+    </div>
 </div>
-<div class="main">
-	<div class="wrap">
-		<div class="content-top">
-			<div class="cont span_2_of_3">
-				 <h3>Lorem Ipsum is <span class="red">simply dummy text</span></h3>
-				 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat</p>
-			</div>
-			<div class="rsidebar span_1_of_3">
-				 <img src="images/graph.png" alt=""/> 
-			</div>
-		   	<div class="clear"></div> 
-		</div>
-		<div class="content-middle">
-			<div class="our-mission" id="team">
-			   <div id="ca-container" class="ca-container">
-				  <div class="ca-wrapper">
-				         <div class="ca-item ca-item-1">
-						   <div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								 <h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						  </div>
-						<div class="ca-item ca-item-2">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-								    <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						</div>
-						<div class="ca-item ca-item-3">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-							    <h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						</div>
-						<div class="ca-item ca-item-4">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-						     </div>
-						</div>
-						<div class="ca-item ca-item-5">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						</div>
-						<div class="ca-item ca-item-6">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						</div>
-						<div class="ca-item ca-item-7">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						</div>
-						<div class="ca-item ca-item-8">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>								
-							 </div>
-						</div>
-			    </div>
-			 </div>
-				    <script type="text/javascript">
-						$('#ca-container').contentcarousel();
-					</script>
-		</div>
-	  </div><br>
-	    <div class="content-middle-bottom">
-			<div class="our-mission" id="team1">
-			   <div id="ca-container1" class="ca-container">
-				  <div class="ca-wrapper">
-				         <div class="ca-item ca-item-1">
-						   <div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								 <h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						  </div>
-						<div class="ca-item ca-item-2">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-								    <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						</div>
-						<div class="ca-item ca-item-3">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						</div>
-						<div class="ca-item ca-item-4">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-						     </div>
-						</div>
-						<div class="ca-item ca-item-5">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						</div>
-						<div class="ca-item ca-item-6">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						</div>
-						<div class="ca-item ca-item-7">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>
-							</div>
-						</div>
-						<div class="ca-item ca-item-8">
-							<div class="ca-item-main">
-								<div class="ca-icon"> </div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<h4>
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</span>
-								</h4>								
-							 </div>
-						</div>
-					 </div>
-			     </div>
-				    <!-- the jScrollPane script -->
-					<script type="text/javascript">
-						$('#ca-container1').contentcarousel();
-					</script>
-		</div>
-		<div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
-	  </div>
-	      <div class="bottom-content">
-	  		    <div class="col_1_of_2 span_1_of_2">
-				   <h3>Lorem Ipsum is <span class="red">simply dummy text</span></h3>
-				   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-				   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
- 				</div>
-				<div class="col_1_of_2 span_1_of_2">
-				   <h3>Lorem Ipsum is <span class="red">simply dummy text</span></h3>
-				   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-				   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-				</div>
-				<div class="clear"></div>
-	      </div>
-	      <div class="heading">
-	      	<h3>Lorem Ipsum is <span class="red">simply dummy text</span></h3>
-	      </div>
-	      <div class="sap_tabs">	
-			<div id="horizontalTab2">
-				  <ul class="resp-tabs-list">
-					  <li>Comfort</li>
-				 	  <li>Style</li>
-					  <li>Design</li>
-					  <li>Quality</li>
-					  <div class="clear"></div>
-				  </ul>				  	 
-				  <div class="resp-tabs-container">
-					  <div class="tab-1">
-						<div class="tab-content">
-							<div class="cont span_2_of_3">
-								 <h3>Lorem Ipsum is simply dummy text </h3>
-								 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-							</div>
-							<div class="rsidebar span_1_of_3">
-								 <img src="images/footer-banner.png" alt=""/> 
-							</div>
-						   	<div class="clear"></div> 
-						</div>
-	    			   </div>
-					   <div class="tab-2">
-						 <div class="tab-content">
-							<div class="cont span_2_of_3">
-								 <h3>diam nonummy nibh euismod tincidunt</h3>
-								 <p>aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum</p>
-							</div>
-							<div class="rsidebar span_1_of_3">
-								 <img src="images/footer-banner.png" alt=""/> 
-							</div>
-						   	<div class="clear"></div> 
-						</div>
-					 </div>	
-				    <div class="tab-3">
-					    <div class="tab-content">
-							<div class="cont span_2_of_3">
-								 <h3>Lorem Ipsum is simply dummy text </h3>
-								 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-							</div>
-							<div class="rsidebar span_1_of_3">
-								 <img src="images/footer-banner.png" alt=""/> 
-							</div>
-						   	<div class="clear"></div> 
-						</div>
-				     </div>	
-				     <div class="tab-4">
-					     <div class="tab-content">
-							<div class="cont span_2_of_3">
-								 <h3>diam nonummy nibh euismod tincidunt</h3>
-								 <p>aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum</p>
-							</div>
-							<div class="rsidebar span_1_of_3">
-								 <img src="images/footer-banner.png" alt=""/> 
-							</div>
-						   	<div class="clear"></div> 
-						</div>          
-				      </div>					      	
-		           </div>	        
-	        </div>
-		    <script type="text/javascript">
-			    $(document).ready(function () {
-			        $('#horizontalTab2').easyResponsiveTabs({
-			            type: 'default', //Types: default, vertical, accordion           
-			            width: 'auto', //auto or any width like 600px
-			            fit: true   // 100% fit in a container
-			        });
-			    });
-			   </script>	
-      	  </div>	  	        		
-	 </div>
-  </div>
-  <div class="footer">
-  	   <div class="wrap">
-  			<div class="bottom-content">
-	  		    <div class="col_1_of_footer span_1_of_footer">
-	  		      <div class="footer-logo">
-					 <a href="index"><img src="images/logo.png" alt=""/></a>
-			 	  </div>
-			 	  <div class="footer-border">
-					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					   <ul class="footer_icon">
-						 <li><a href="#" style="opacity: 1;"><img src="images/fb.png" alt=""></a></li>
-						 <li><a href="#" style="opacity: 1;"><img src="images/tw.png" alt=""></a></li>
-						 <li><a href="#" style="opacity: 1;"><img src="images/rss.png" alt=""></a></li>
-			  		   </ul>
-			  	 </div>
- 				</div>
-				<div class="col_1_of_footer span_1_of_footer1">
-				     <div class="col_1_of_footer span_1_of_footer">
-						   <div class="sidebar-nav">
-						   	<div class="footer-middle-right">
-						   	   <h4>Pump Psd</h4>
-				                <ul>
-				                   <li><a href="">Home</a></li>
-				                   <li><a href="">Products</a></li>
-				                   <li><a href="">Where to buy</a></li>
-				                   <li><a href="">About Us</a></li>
-				                   <li><a href="">Contact Us</a></li>
-				                   <li><a href="">Join Newsletter</a></li>
-				                   <li><a href="">Fake Content</a></li>
-				               </ul>
-		              	    </div>
-		              	    </div>
-		 				 </div>
-						 <div class="col_1_of_footer span_1_of_footer">
-						    <div class="sidebar-nav1">
-						    	<div class="footer-right">
-						   		<h4>About Us</h4>
-				                <ul>
-				                   <li><a href="">Supporters</a></li>
-				                   <li><a href="">Design</a></li>
-				                   <li><a href="">Our Team</a></li>
-				                   <li><a href="">Shoe Blog</a></li>
-				                   <li><a href="">RSS</a></li>
-				                   <li><a href="">Twitter</a></li>
-				                </ul>
-		              	   </div>
-		              	    </div>
-						</div>
-						<div class="clear"></div>
-	       	     </div>
-				<div class="clear"></div>
-	       </div>
-	       <div class="copy">
-		      <p class="copy">Copyright &copy; 2014.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-	       </div>
-  	   </div>
-  </div>
+
+<script src="js/jquery.nouislider.js"></script>
+
+<!-- this page specific inline scripts -->
+<script>
+    //min/max slider
+    function huadong(my, unit, def, max) {
+        $(my).noUiSlider({
+            range: [0, max],
+            start: [def],
+            handles: 1,
+            connect: 'upper',
+            slide: function() {
+                var val = Math.floor($(this).val());
+                $(this).find(".noUi-handle").text(
+                    val + unit
+                );
+                console.log($(this).find(".noUi-handle").parent().parent().html());
+            },
+            set: function() {
+                var val = Math.floor($(this).val());
+                $(this).find(".noUi-handle").text(
+                    val + unit
+                );
+            }
+        });
+        $(my).val(def, true);
+    }
+    huadong('.slider-minmax1', "分钟", "5", 30);
+    huadong('.slider-minmax2', "分钟", "6", 15);
+    huadong('.slider-minmax3', "分钟", "10", 60);
+    huadong('.slider-minmax4', "次", "2", 10);
+    huadong('.slider-minmax5', "天", "3", 7);
+    huadong('.slider-minmax6', "天", "8", 10);
+</script>
+<script type="text/javascript">
+
+    // 初始化Web Uploader
+    var uploader = WebUploader.create({
+
+        // 选完文件后，是否自动上传。
+        auto: true,
+
+        // swf文件路径
+        swf: 'https://cdn.staticfile.org/webuploader/0.1.1/Uploader.swf',
+
+        // 文件接收服务端。
+        server: 'upload',
+
+        // 选择文件的按钮。可选。
+        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+        pick: '#filePicker',
+
+        // 只允许选择图片文件。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/*'
+        }
+    });
+
+    // 当有文件添加进来的时候
+    uploader.on( 'fileQueued', function( file ) {
+
+    });
+
+    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+    uploader.on( 'uploadSuccess', function( file ,response) {
+        var imgdiv = document.getElementById('pic');
+        console.log(response.key);
+        //获得服务器的图片
+        var url = response.url;
+        var img = document.createElement('img');
+        img.style.width = '100px';
+        img.src=url;
+        imgdiv.appendChild(img);
+
+    });
+
+    // 文件上传失败，显示上传出错。
+    uploader.on( 'uploadError', function( file ) {
+
+    });
+
+    // 完成上传完了，成功或者失败，先删除进度条。
+    uploader.on( 'uploadComplete', function( file ) {
+        console.log("上传完成");
+        console.log(file);
+    });
+</script>
 
 </body>
-</html>
+<script>
 
-    	
-    	
-            
+    //增加歌单
+    // 图片选择改变事件
+    function inputchange(){
+        var pathsrc;
+        var file = document.getElementById("fulAvatar");
+        var formData = new FormData();
+        var fileObj =file.files[0];
+        formData.append("uploadImage", fileObj);
+
+
+
+        // formData.append("name", name);
+        // formData.append("label", label);
+        console.log(formData);
+        var url = "http://localhost:8088/upload";
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: formData,
+            // data:{name:name},
+
+            /**
+             * 必须false才会避开jQuery对 formdata 的默认处理
+             * XMLHttpRequest会对 formdata 进行正确的处理
+             */
+            processData: false,
+            /**
+             *必须false才会自动加上正确的Content-Type
+             */
+            contentType: false,
+            success: function (responseStr) {
+                console.log(responseStr.newPath);
+                pathsrc = responseStr.newPath;
+
+            },
+            error: function (responseStr) {
+                console.log(responseStr.newPath);
+                pathsrc = responseStr.newPath;
+            }
+        });
+        $('#addPlaylistsave').click(function () {
+            var addPlayName = document.getElementById('addPlayName');
+            var addPlayLabel = document.getElementById('addPlayLabel');
+            var  name = addPlayName.value;
+            var label = addPlayLabel.value;
+            addPlayName.value = '';
+            addPlayLabel.value = '';
+            var amount=Math.floor(Math.random()*45457+1215);
+            var collection=Math.floor(Math.random()*10000+254);
+            console.log("pathsrc "+pathsrc);
+            var xmlRequest1 = new XMLHttpRequest();
+            xmlRequest1.open('get', 'http://localhost:8088/addPlaylist?name='+name+'&label='+label+'&pathsrc='+pathsrc+'&amount='+amount+'&collection='+collection,true);
+            xmlRequest1.send();
+            // xmlRequest1.send(album);
+            xmlRequest1.onreadystatechange = function () {
+                if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                    var data = JSON.parse(xmlRequest1.responseText);
+                    console.log(data);
+                    if (data.result == 1) {
+                        var selectPlaylist = document.getElementById('Playlist');
+                        var divrow = document.createElement('div');
+                        divrow.setAttribute('class', 'playlist' + data.id + ' row');
+                        divrow.innerHTML = '<div title=' + name + ' class="col-xs-3  omit">' + name + '</div>'
+                            + '<div class="col-xs-2">'
+                            + '<img height="40px" src=' + pathsrc + ' alt="">'
+                            + '</div>'
+                            + '<div title=' + label + '  class="col-xs-3 omit">' + label + '</div>'
+                            +'<div title=' + amount + ' class="col-xs-1  omit">' + amount + '</div>'
+                            +'<div title=' + collection + ' class="col-xs-1  omit">' + collection + '</div>'
+                            + '<div class="col-xs-2">'
+                            + '<button onclick="alertPlaylist(' + data.id + ')"  class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSour" >修改</button> <button onclick="deletePlaylist(' + data.id + ')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSour">删除</button></div>';
+                        selectPlaylist.appendChild(divrow);
+                        var miss = document.getElementById('addMvmiss');
+                        miss.click();
+                    }
+                }
+            }
+            var miss = document.getElementById('addPlaylistmiss');
+            miss.click();
+        });
+
+
+    }
+
+    //歌单删除
+    function deletePlaylist(id) {
+        $('#deletePlaylistsave').click(function () {
+            var xmlRequest = new XMLHttpRequest();
+            xmlRequest.open('post','http://localhost:8088/deletePlaylist',true);
+            xmlRequest.send(id);
+            xmlRequest.onreadystatechange=function () {
+                if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                    var data1 = JSON.parse(xmlRequest.responseText);
+                    var result = data1.result;
+                    if (result == 1) {
+                        var class_id = document.getElementsByClassName('playlist' + id);
+                        $(class_id).remove();
+                        var miss = document.getElementById('deletePlaylistmiss');
+                        miss.click();
+                    }
+                }
+            }
+            // console.log(id);
+            // var miss = document.getElementById('deletePlaylistmiss');
+            // miss.click();
+        });
+    }
+
+    //歌单修改
+    function alertPlaylist(id) {
+        var src ;
+        $('#Playlistchange').click(function () {
+            var file = document.getElementById("fulAvatarPlaylist");
+            var formDataPlaylist = new FormData();
+            var fileObj =file.files[0];
+
+            // console.log(file);
+            if(fileObj!=undefined) {
+                formDataPlaylist.append("uploadImage", fileObj);
+
+
+                var url = "http://localhost:8088/Playlistupload";
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: formDataPlaylist,
+
+                    /**
+                     * 必须false才会避开jQuery对 formdata 的默认处理
+                     * XMLHttpRequest会对 formdata 进行正确的处理
+                     */
+                    processData: false,
+                    /**
+                     *必须false才会自动加上正确的Content-Type
+                     */
+                    contentType: false,
+                    success: function (responseStr) {
+                        console.log("成功"+responseStr.newPath);
+                        src =responseStr.newPath;
+
+                    },
+                    error: function (responseStr) {
+                        console.log("失败"+responseStr.newPath);
+                        src =responseStr.newPath;
+                    }
+                });
+            }
+
+        });
+
+        var xmlRequest = new XMLHttpRequest();
+        xmlRequest.open('get','http://localhost:8088/selectPlaylistid?id='+id,true);
+        xmlRequest.send();
+        xmlRequest.onreadystatechange=function () {
+            if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                var data = JSON.parse(xmlRequest.responseText);
+                console.log(data);
+                var alertPlayName = document.getElementById('alertPlayName');
+                var alertPlayLabel = document.getElementById('alertPlayLabel');
+                var fulAvatarPlaylist = document.getElementById('fulAvatarPlaylist');
+                alertPlayName.setAttribute('placeholder',data.playlist.playlist_name);
+                alertPlayLabel.setAttribute('placeholder',data.playlist.playlist_label);
+                $('#alertPlaylistsave').click(function () {
+                    var playName = alertPlayName.value;
+                    var playLabel = alertPlayLabel.value;
+                    alertPlayName.value = '';
+                    alertPlayLabel.value = '';
+                    fulAvatarPlaylist.value = '';
+                    if(src==undefined) {
+                        src = data.playlist.playlist_pic;
+                    }
+                    if(playName=='') {
+                        playName = data.playlist.playlist_name;
+                    }
+                    if(playLabel=='') {
+                        playLabel = data.playlist.playlist_label;
+                    }
+                    console.log("src   "+src+" playName"+playName+" playLabel"+playLabel);
+                    // console.log(id);
+                    var xmlRequest1 = new XMLHttpRequest();
+                    xmlRequest1.open('get','http://localhost:8088/alterplaylist?id='+id+'&playName='+playName+'&playLabel='+playLabel+'&src='+src,true);
+                    xmlRequest1.send();
+                    xmlRequest1.onreadystatechange=function () {
+                        if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                            var data1 = JSON.parse(xmlRequest1.responseText);
+                            if(data1.result===1) {
+                                var class_id = document.getElementsByClassName('playlist'+id);
+                                $(class_id).remove();
+                                var selectPlaylist = document.getElementById('Playlist');
+                                var divrow = document.createElement('div');
+                                divrow.setAttribute('class','playlist'+id+' row');
+
+                                divrow.innerHTML = '<div title=' + playName + ' class="col-xs-3  omit">' + playName + '</div>'
+                                    + '<div class="col-xs-2">'
+                                    + '<img height="40px" src=' + src + ' alt="">'
+                                    + '</div>'
+                                    + '<div title=' + playLabel + '  class="col-xs-3 omit">' + playLabel + '</div>'
+                                    +'<div title=' + data.playlist.playlist_amount + ' class="col-xs-1  omit">' + data.playlist.playlist_amount + '</div>'
+                                    +'<div title=' + data.playlist.playlist_collection + ' class="col-xs-1  omit">' + data.playlist.playlist_collection + '</div>'
+                                    + '<div class="col-xs-2">'
+                                    + '<button onclick="alertPlaylist(' + id + ')"  class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSour" >修改</button> <button onclick="deletePlaylist(' + id + ')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSour">删除</button></div>';
+                                selectPlaylist.appendChild(divrow);
+                                var miss = document.getElementById('alertPlaylistmiss');
+                                miss.click();
+                            }
+                        }
+                    }
+                });
+            }
+        };
+    }
+
+    //歌曲查询
+    function Song() {
+        var xmlRequest1 = new XMLHttpRequest();
+        xmlRequest1.open('get','http://localhost:8088/SelectSong',true);
+        xmlRequest1.send();
+        xmlRequest1.onreadystatechange=function () {
+            if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                var song1 = JSON.parse(xmlRequest1.responseText);
+                var song = song1.data;
+                var song2 = song1.playlist;
+                var songlists = [];
+                for(var i=0;i<song.length;i++) {
+                    console.log(song[i].music_id);
+                    for(var j=0;j<song2.length;j++) {
+                        if(song[i].music_id==song2[j].music_id) {
+                            songlists.push({id:song[i].music_id,name:song2[j].playlist_name});
+                        }
+                    }
+                }
+                console.log(songlists);
+                var Selectsong = document.getElementById('Selectsong');
+                Selectsong.innerHTML = '';
+
+                var songsshows = [];
+                for(var i=0;i<songlists.length;i++){
+                    var str = '';
+                    for(var j=i;j<songlists.length;j++){
+                        if(songlists[i].id==songlists[j].id){
+                            str = str+"&nbsp;&nbsp;"+songlists[j].name;
+                        }
+                    }
+                    if(songsshows[songlists[i].id]==null) {
+                        songsshows[songlists[i].id] = str;
+                    }
+                }
+                for(var i=0;i<song.length;i++){
+                    var songs = song1.playlist_name;
+                    var divrow = document.createElement('div');
+                    divrow.setAttribute('class','row');
+                    var  songlist = songsshows[song[i].album_id];
+                    if(songlist==null) {
+                        songlist = "暂无所属歌单";
+                    }
+                    divrow.innerHTML = '<div title='+song[i].music_name+' class="col-xs-1  omit">'+song[i].music_name+'</div>'
+                        +'<div title='+song[i].singer+'  class="col-xs-1 omit">'+song[i].singer+'</div>'
+                        +'<div title='+song[i].language+'  class="col-xs-1 omit">'+song[i].language+'</div>'
+                        +'<div title='+song[i].music_play+'  class="col-xs-1 omit">'+song[i].music_play+'</div>'
+                        +'<div title='+song[i].collection+'  class="col-xs-1 omit">'+song[i].collection+'</div>'
+                        +'<div title='+song[i].album_name+'  class="col-xs-1 omit">'+song[i].album_name+'</div>'
+                        +'<div title='+songlist+'  class="col-xs-3 omit">'+songlist+'</div>'
+                        +'<div class="col-xs-3">'
+                        +'<button  class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeChar" >修改</button> <button   class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChar">删除</button> <button   class="btn btn-success btn-xs" data-toggle="modal" data-target="#addPlaylist">添加歌单</button></div>';
+                    Selectsong.appendChild(divrow);
+                }
+            }
+        }
+    }
+
+    //添加歌曲
+
+    //MV查询
+    function Mv() {
+        var xmlRequest1 = new XMLHttpRequest();
+        xmlRequest1.open('get','http://localhost:8088/SelectMv',true);
+        xmlRequest1.send();
+        xmlRequest1.onreadystatechange=function () {
+            if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                var mv1 = JSON.parse(xmlRequest1.responseText);
+                var mv = mv1.data;
+                var selectMv = document.getElementById('selectMv');
+                selectMv.innerHTML = '';
+                for(var i=0;i<mv.length;i++){
+                    var divrow = document.createElement('div');
+                    divrow.setAttribute('class','mv'+mv[i].id+' row');
+
+                    divrow.innerHTML = '<div title='+mv[i].name+' class="col-xs-2  omit">'+mv[i].name+'</div>'
+                        +'<div title='+mv[i].infor+'  class="col-xs-4 omit">'+mv[i].infor+'</div>'
+                        +'<div class="col-xs-4">'
+                        +'<video class="col-xs-12 posi" src='+mv[i].src+' controls style="width:100px;height:70px;"></video>'
+                        +'</div>'
+                        +'<div class="col-xs-2">'
+                        +'<button onclick="Mvalert('+mv[i].id+')"  class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser" >修改</button> <button  onclick="Mvdelete('+mv[i].id+')" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser" >删除</button></div>';
+                    selectMv.appendChild(divrow);
+                }
+            }
+        }
+    }
+
+    //添加MV
+    function addMV() {
+        var mvName = document.getElementById('mvName');
+        var mvInfor = document.getElementById('mvInfor');
+        var mvaddress = document.getElementById('mvaddress');
+        var xmlRequest1 = new XMLHttpRequest();
+        var Name = mvName.value;
+        var Infor = mvInfor.value;
+        var address = mvaddress.value;
+        xmlRequest1.open('get', 'http://localhost:8088/addMV?Name='+Name+'&Infor='+Infor+'&address='+address,true);
+        xmlRequest1.send();
+        // xmlRequest1.send(album);
+        mvName.value = '';
+        mvInfor.value = '';
+        mvaddress.value = '';
+        xmlRequest1.onreadystatechange = function () {
+            if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                var data = JSON.parse(xmlRequest1.responseText);
+                console.log(data);
+                if(data.result==1) {
+                    var selectMv = document.getElementById('selectMv');
+                    var divrow = document.createElement('div');
+                    divrow.setAttribute('class','mv'+data.id+' row');
+
+                    divrow.innerHTML = '<div title='+Name+' class="col-xs-2  omit">'+Name+'</div>'
+                        +'<div title='+Infor+'  class="col-xs-4 omit">'+Infor+'</div>'
+                        +'<div class="col-xs-4">'
+                        +'<video class="col-xs-12 posi" src='+address+' controls style="width:100px;height:70px;"></video>'
+                        +'</div>'
+                        +'<div class="col-xs-2">'
+                        +'<button onclick="Mvalert('+data.id+')"  class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser" >修改</button> <button onclick="Mvdelete('+data.id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">删除</button></div>';
+                    selectMv.appendChild(divrow);
+                    var miss = document.getElementById('addMvmiss');
+                    miss.click();
+                }
+            }
+        }
+    }
+
+    //删除MV
+    function Mvdelete(id) {
+        $('#deleMissSave').click(function () {
+
+            var xmlRequest = new XMLHttpRequest();
+            xmlRequest.open('post','http://localhost:8088/deleteMv',true);
+            xmlRequest.send(id);
+            xmlRequest.onreadystatechange=function () {
+                if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                    var data1 = JSON.parse(xmlRequest.responseText);
+                    var result = data1.result;
+                    if (result == 1) {
+                        var class_id = document.getElementsByClassName('mv' + id);
+                        $(class_id).remove();
+                        var miss = document.getElementById('deleMiss');
+                        miss.click();
+                    }
+                }
+            }
+        });
+    }
+
+    //修改MV
+    function Mvalert(id) {
+        var xmlRequest = new XMLHttpRequest();
+        xmlRequest.open('get','http://localhost:8088/selectMVid?id='+id,true);
+        xmlRequest.send();
+        xmlRequest.onreadystatechange=function () {
+            if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                var data1 = JSON.parse(xmlRequest.responseText);
+                console.log(data1);
+                var mvName = document.getElementById('mvalertName');
+                mvName.setAttribute('placeholder',data1.mv.name);
+                var mvInfor = document.getElementById('mvalertInfor');
+                mvInfor.setAttribute('placeholder',data1.mv.infor);
+                var mvAdress = document.getElementById('mvalertAdress');
+                mvAdress.setAttribute('placeholder',data1.mv.src);
+                $('#alertMVsave').click(function () {
+
+                    var name = mvName.value;
+                    var infor = mvInfor.value;
+                    var address = mvAdress.value;
+                    mvName.value = '';
+                    mvInfor.value = '';
+                    mvAdress.value = '';
+                    if(name=='') {
+                        name = data1.mv.name;
+                    }
+                    if(infor=='') {
+                        infor = data1.mv.infor;
+                    }
+                    if(address=='') {
+                        address = data1.mv.src;
+                    }
+                    var xmlRequest1 = new XMLHttpRequest();
+                    xmlRequest1.open('get','http://localhost:8088/alterMVid?id='+id+'&name='+name+'&infor='+infor+'&address='+address,true);
+                    xmlRequest1.send();
+                    xmlRequest1.onreadystatechange=function () {
+                        if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                            var data = JSON.parse(xmlRequest1.responseText);
+                            if(data.result===1) {
+                                var class_id = document.getElementsByClassName('mv'+id);
+                                $(class_id).remove();
+                                var selectMv = document.getElementById('selectMv');
+                                var divrow = document.createElement('div');
+                                divrow.setAttribute('class','mv'+id+' row');
+
+                                divrow.innerHTML = '<div title='+name+' class="col-xs-2  omit">'+name+'</div>'
+                                    +'<div title='+infor+'  class="col-xs-4 omit">'+infor+'</div>'
+                                    +'<div class="col-xs-4">'
+                                    +'<video class="col-xs-12" src='+address+' controls style="width:100px;height:70px;"></video>'
+                                    +'</div>'
+                                    +'<div class="col-xs-2">'
+                                    +'<button onclick="Mvalert('+id+')"  class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser" >修改</button> <button onclick="Mvdelete('+id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">删除</button></div>';
+                                selectMv.appendChild(divrow);
+                                var miss = document.getElementById('alertMVmiss');
+                                miss.click();
+                            }
+                        }
+                    }
+                })
+            }
+        }
+    }
+
+    //专辑查询
+    function Album() {
+        var xmlRequest1 = new XMLHttpRequest();
+        xmlRequest1.open('get','http://localhost:8088/SelectAlbum',true);
+        xmlRequest1.send();
+        xmlRequest1.onreadystatechange=function () {
+            if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                var album1 = JSON.parse(xmlRequest1.responseText);
+                var album = album1.data;
+                var selectAlbum = document.getElementById('selectAlbum');
+                selectAlbum.innerHTML = '';
+                for(var i=0;i<album.length;i++){
+                    var divrow = document.createElement('div');
+                    divrow.setAttribute('class','albums'+album[i].album_id+' row');
+
+                    divrow.innerHTML = '<div title='+album[i].album_name+' class="col-xs-10  omit">'+album[i].album_name+'</div>'
+                        +'<div class="col-xs-2">'
+                        +'<button  class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseSchool" onclick="Albumalert('+album[i].album_id+')" >修改</button> <button  onclick="Albumdelete('+album[i].album_id+')" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSchool">删除</button></div>';
+                    selectAlbum.appendChild(divrow);
+                }
+            }
+        }
+    }
+
+    //添加专辑
+    function addAlbum() {
+        var albumName = document.getElementById('albumName');
+        var xmlRequest1 = new XMLHttpRequest();
+        xmlRequest1.open('post', 'http://localhost:8088/addAlbum', true);
+        var album = albumName.value;
+        console.log(album);
+        xmlRequest1.send(album);
+        albumName.value = '';
+        xmlRequest1.onreadystatechange = function () {
+            if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                var data = JSON.parse(xmlRequest1.responseText);
+                if(data.result==1) {
+                    var selectAlbum = document.getElementById('selectAlbum');
+                    var divrow = document.createElement('div');
+                    divrow.setAttribute('class','albums'+data.id+' row');
+                    divrow.innerHTML = '<div title='+data.album+' class="col-xs-10  omit">'+data.album+'</div>'
+                        +'<div class="col-xs-2">'
+                        +'<button  class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseSchool" onclick="Albumalert('+data.id+')">修改</button> <button onclick="Albumdelete('+data.id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSchool">删除</button></div>';
+                    selectAlbum.appendChild(divrow);
+
+                    var miss = document.getElementById('missAlbum');
+                    miss.click();
+                }
+            }
+        }
+
+    }
+
+    //删除专辑
+    function Albumdelete(id) {
+        $('#saveAlbumdele').click(function () {
+
+            var xmlRequest = new XMLHttpRequest();
+            xmlRequest.open('post','http://localhost:8088/deleteAlbum',true);
+            xmlRequest.send(id);
+            xmlRequest.onreadystatechange=function () {
+                if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                    var data1 = JSON.parse(xmlRequest.responseText);
+                    var result = data1.result;
+                    if (result == 1) {
+                        var class_id = document.getElementsByClassName('albums' + id);
+                        $(class_id).remove();
+                        var miss = document.getElementById('missAlbumdele');
+                        miss.click();
+                    }
+                }
+            }
+        });
+    }
+
+    //修改专辑
+    function Albumalert(id) {
+        // console.log(id);
+
+        var xmlRequest = new XMLHttpRequest();
+        xmlRequest.open('get','http://localhost:8088/selectAlbumid?id='+id,true);
+        xmlRequest.send();
+        xmlRequest.onreadystatechange=function () {
+            if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                var data1 = JSON.parse(xmlRequest.responseText);
+                var AlbumName = document.getElementById('AlbumName');
+                AlbumName.setAttribute('placeholder',data1.album);
+                AlbumName.value = '';
+                $('#alertAlbumsave').click(function () {
+
+                    var name = AlbumName.value;
+                    if(name=='') {
+                        name = data1.album;
+                    }
+                    var xmlRequest1 = new XMLHttpRequest();
+                    xmlRequest1.open('get','http://localhost:8088/alterAlbumid?id='+id+'&name='+name,true);
+                    xmlRequest1.send();
+                    xmlRequest1.onreadystatechange=function () {
+                        if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                            var data = JSON.parse(xmlRequest1.responseText);
+                            if(data.result===1) {
+                                var class_id = document.getElementsByClassName('albums'+id);
+                                $(class_id).remove();
+                                var selectAlbum = document.getElementById('selectAlbum');
+                                var divrow = document.createElement('div');
+                                divrow.setAttribute('class','albums'+id+' row');
+                                divrow.innerHTML = '<div class="col-xs-10">'+name+'</div>'
+                                    +'<div class="col-xs-2">'
+                                    +'<button  class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseSchool" onclick="Albumalert('+id+')">修改</button> <button onclick="Albumdelete('+id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSchool">删除</button></div>';
+                                selectAlbum.appendChild(divrow);
+                                var miss = document.getElementById('alertAlbummiss');
+                                miss.click();
+                            }
+                        }
+                    }
+                })
+            }
+        }
+    }
+
+
+
+
+    function addspecie() {
+        var kindName = document.getElementById('kindName');
+        var xmlRequest1 = new XMLHttpRequest();
+        xmlRequest1.open('get','http://localhost:8088/addMusicitem?name='+kindName.value,true);
+        xmlRequest1.send();
+        xmlRequest1.onreadystatechange=function () {
+            if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                var data1 = JSON.parse(xmlRequest1.responseText);
+                if(data1.result==1) {
+
+                    var species_insert = document.getElementById('species_insert');
+                    var divrow = document.createElement('div');
+                    divrow.setAttribute('class','species'+data1.id+' row');
+                    divrow.innerHTML = '<div class="col-xs-4 ">'+data1.id+'</div>'
+                        +'<div class="col-xs-6">'+data1.name+'</div>'
+                        +'<div class="col-xs-2">'
+                        +'<button onclick="speciexg('+data1.id+')" class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeChar" >修改</button> <button onclick="speciedelete('+data1.id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChar">删除</button></div>';
+                    species_insert.appendChild(divrow);
+                    var miss = document.getElementById('specie_miss');
+                    miss.click();
+
+                }
+                // console.log(data1);
+            }
+        }
+    }
+
+    function speciedelete(id) {
+        var Specie = id;
+
+        $('#deleteonclickspecie').click(function () {
+            var xmlRequest = new XMLHttpRequest();
+            xmlRequest.open('get','http://localhost:8088/deletespecie?id='+id,true);
+            xmlRequest.send();
+            xmlRequest.onreadystatechange=function () {
+                if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                    var data1 = JSON.parse(xmlRequest.responseText);
+                    var result = data1.result;
+                    if(result==1){
+
+                        var class_id = document.getElementsByClassName('species'+Specie);
+                        $(class_id).remove();
+                        var miss = document.getElementById('delespecie');
+                        miss.click();
+                    }
+                }
+            }
+
+        })
+    }
+
+    function speciexg(id) {
+        // console.log(id);
+        // var alterspecie = document.getElementById('alterspecie');
+        var xmlRequest = new XMLHttpRequest();
+        xmlRequest.open('get','http://localhost:8088/selectspecieid?id='+id,true);
+        xmlRequest.send();
+        xmlRequest.onreadystatechange=function () {
+            if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                var data1 = JSON.parse(xmlRequest.responseText);
+                var speciename = document.getElementById('speciename');
+                speciename.setAttribute('placeholder',data1.species_name);
+                speciename.value = '';
+                $('#alterspecie').click(function () {
+
+                    var name = speciename.value;
+                    if(name=='') {
+                        name = data1.species_name;
+                    }
+                    var xmlRequest1 = new XMLHttpRequest();
+                    xmlRequest1.open('get','http://localhost:8088/alterspecieid?id='+id+'&name='+name,true);
+                    xmlRequest1.send();
+                    xmlRequest1.onreadystatechange=function () {
+                        if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                            var data = JSON.parse(xmlRequest1.responseText);
+                            if(data.result===1) {
+                                var class_id = document.getElementsByClassName('species'+id);
+                                $(class_id).remove();
+                                var species_insert = document.getElementById('species_insert');
+                                var divrow = document.createElement('div');
+                                divrow.setAttribute('class','species'+id+' row');
+                                divrow.innerHTML = '<div class="col-xs-4 ">'+id+'</div>'
+                                    +'<div class="col-xs-6">'+name+'</div>'
+                                    +'<div class="col-xs-2">'
+                                    +'<button onclick="speciexg('+id+')" class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeChar" >修改</button> <button onclick="speciedelete('+id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChar">删除</button></div>';
+                                species_insert.appendChild(divrow);
+                                var miss = document.getElementById('speciemiss');
+                                miss.click();
+                            }
+                        }
+                    }
+                })
+            }
+        }
+    }
+</script>
+</html>
