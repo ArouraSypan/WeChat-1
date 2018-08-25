@@ -16,10 +16,11 @@ function SongMusicUtil() {
         connection.connect();
     }
 
-    this.inserSpecies = function (species_name,call) {
+    //插入歌曲
+    this.inserMusic = function (name,singer,languages,amount,collection,musicSrc,album_id,call) {
         //1,编写sql语句
-        var speciesAddSql = 'INSERT INTO species(species_name) VALUES(?)';
-        var speciesAddSql_Params = [species_name];
+        var MusicAddSql = 'INSERT INTO music(music_name,playlist_id,music_play,singer,language,collection,music_src,album_id) VALUES(?,?,?,?,?,?,?,?)';
+        var MusicAddSql_Params = [name,0,amount,singer,languages,collection,musicSrc,album_id];
         //2,进行插入操作
         /**
          *query，mysql语句执行的方法
@@ -27,12 +28,11 @@ function SongMusicUtil() {
          * 2，userAddSql_Params，sql语句中的值
          * 3，function (err, result)，回调函数，err当执行错误时，回传一个err值，当执行成功时，传回result
          */
-        connection.query(speciesAddSql, speciesAddSql_Params, function (err, result) {
+        connection.query(MusicAddSql, MusicAddSql_Params, function (err, result) {
             if (err) {
                 console.log('[INSERT ERROR] - ', err.message);
                 return;
             }
-            //return result;
             call(result);
         });
 
@@ -40,11 +40,12 @@ function SongMusicUtil() {
         connection.end();
     }
 
-    this.update=function (id,name) {
+    //修改歌曲
+    this.update=function (id,name,singer,language,album_id) {
         //4,编写sql语句
-        var updateModSql = 'UPDATE species SET species_name = ? WHERE species_id = ?';
+        var updateModSql = 'UPDATE music SET music_name = ?, singer=?,language=?,album_id=? WHERE music_id = ?';
 
-        var updateModSql_Params = [name, id];
+        var updateModSql_Params = [name,singer,language,album_id, id];
         //5，更新操作
         connection.query(updateModSql,updateModSql_Params,function (err, result) {
             if(err){
@@ -54,20 +55,34 @@ function SongMusicUtil() {
         });
     }
 
-    this.delete = function (id) {
-        var  specieGetSql = "DELETE FROM species where species_id = " +id;
+    //删除歌曲
+    this.delete = function (id,call) {
+        var  specieGetSql = "DELETE FROM music where music_id = " +id;
 
         connection.query(specieGetSql,function (err, result) {
             if(err){
                 console.log('[INSERT ERROR] - ',err.message);
                 return;
             }
-            console.log(result);
+            call(result);
         });
     }
 
+    //删除与歌曲相关的歌单联系
+    this.deleteSongP = function (id) {
+        var  specieGetSql = "DELETE FROM song_playlist where song_id = " +id;
+
+        connection.query(specieGetSql,function (err, result) {
+            if(err){
+                console.log('[INSERT ERROR] - ',err.message);
+                return;
+            }
+            return result;
+        });
+    }
+
+    //查询歌曲
     this.querySong = function (call) {
-        // var sql = "select * from music,album,playlist where music.album_id=album.album_id and music.playlist_id=playlist.playlist_id ";
         var sql = "select * from music,album where music.album_id=album.album_id ";
 
         connection.query(sql, function (err, result) {
@@ -81,8 +96,9 @@ function SongMusicUtil() {
         connection.end();
     }
 
-    this.queryId = function (id1,call) {
-        var sql = "select * from species where species_id='" +id1+ "'";
+    //根据id查询歌曲
+    this.queryId = function (id,call) {
+        var sql = "select * from music where music_id='" +id+ "'";
         connection.query(sql, function (err, result) {
             if (err) {
                 console.log('[INSERT ERROR] - ', err.message);

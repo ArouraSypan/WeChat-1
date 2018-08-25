@@ -16,7 +16,7 @@ function albumMusicUtil() {
         connection.connect();
     }
 
-    //3.添加专辑
+    //添加专辑
     this.inserAlbum = function (id,name,call) {
         //1,编写sql语句
         var userAddSql = 'INSERT INTO album VALUES(?,?)';

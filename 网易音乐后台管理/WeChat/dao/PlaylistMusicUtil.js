@@ -16,30 +16,6 @@ function PlaylistMusicUtil() {
         connection.connect();
     }
 
-    this.inserSpecies = function (species_name,call) {
-        //1,编写sql语句
-        var speciesAddSql = 'INSERT INTO species(species_name) VALUES(?)';
-        var speciesAddSql_Params = [species_name];
-        //2,进行插入操作
-        /**
-         *query，mysql语句执行的方法
-         * 1，userAddSql编写的sql语句
-         * 2，userAddSql_Params，sql语句中的值
-         * 3，function (err, result)，回调函数，err当执行错误时，回传一个err值，当执行成功时，传回result
-         */
-        connection.query(speciesAddSql, speciesAddSql_Params, function (err, result) {
-            if (err) {
-                console.log('[INSERT ERROR] - ', err.message);
-                return;
-            }
-            //return result;
-            call(result);
-        });
-
-        //5,连接结束
-        connection.end();
-    }
-
     //修改歌单
     this.update=function (id,playName,playLabel,src) {
         //4,编写sql语句
@@ -68,6 +44,7 @@ function PlaylistMusicUtil() {
         });
     }
 
+    //查询歌单
     this.queryPlaylist = function (call) {
         var sql = "select * from playlist";
 
@@ -115,8 +92,8 @@ function PlaylistMusicUtil() {
     }
 
     //4.查询歌曲所属的歌单
-    this.queryMusic_list = function (call) {
-        var sql = "select  playlist.playlist_name,music.music_id from playlist,music,song_playlist where music.music_id=song_playlist.song_id and song_playlist.playlist_id=playlist.playlist_id";
+    this.queryMusic_list = function (id,call) {
+        var sql = "select  b.*,a.playlist_name from playlist a,music b,song_playlist c where b.music_id=c.song_id and a.playlist_id = c.playlist_id and b.music_id="+id+"";
         connection.query(sql, function (err, result) {
             if (err) {
                 console.log('[SELECT ERROR] - ', err.message);

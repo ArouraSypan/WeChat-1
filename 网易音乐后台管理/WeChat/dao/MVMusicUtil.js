@@ -16,6 +16,7 @@ function MVMusicUtil() {
         connection.connect();
     }
 
+    //插入MV
     this.inserMv = function (name,infor,address,call) {
         //1,编写sql语句
         var MvAddSql = 'INSERT INTO mv(name,infor,src) VALUES(?,?,?)';
@@ -61,6 +62,7 @@ function MVMusicUtil() {
         });
     }
 
+    //查询MV
     this.queryMV = function (call) {
         var sql = "select * from mv";
 

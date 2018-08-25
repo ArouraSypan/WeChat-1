@@ -411,22 +411,27 @@
                                         <div class="form-group ">
                                             <label for="SongAlbum" class="col-xs-3 control-label">所属专辑：</label>
                                             <div class="col-xs-6 ">
-                                                <input type="text" class="form-control input-sm duiqi" id="SongAlbum" placeholder="">
+                                                <select id="playlist_name_value">
+                                                    <%album.forEach(function (playlist) {%>
+                                                    <option value ="<%=playlist.album_id%>"><%=playlist.album_name%></option>
+                                                    <%})%>
+                                                </select>
+                                                <!--<input type="text" class="form-control input-sm duiqi" id="SongAlbum" placeholder="">-->
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="sLink" class="col-xs-3 control-label">上传歌曲：</label>
                                             <div class="col-xs-6 ">
-                                                <input type="file" id="fulAvatarSong" name="image" size="50" />
-                                                <input type="button" id="Playlistchange" value="上传歌曲" />
+                                                <input type="file" id="fulAvatarSong" name="song" size="50" />
+                                                <input type="button" onclick="Songchange()" value="上传歌曲" />
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button id="specie_miss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                <button onclick="addspecie()" type="button" class="btn btn-xs btn-green">保 存</button>
+                                <button id="addmusicMiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="addmusicSave" type="button" class="btn btn-xs btn-green">保 存</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -447,9 +452,13 @@
                                 <div class="container-fluid">
                                     <form class="form-horizontal">
                                         <div class="form-group ">
-                                            <label for="kindName" class="col-xs-3 control-label">选择歌单：</label>
+                                            <label for="SongPlaylistName" class="col-xs-3 control-label">选择歌单：</label>
                                             <div class="col-xs-6 ">
-                                                <input type="text" class="form-control input-sm duiqi" id="kindName" placeholder="">
+                                                <%data.forEach(function (playlist) {%>
+                                                <%if(playlist.playlist_name!=null){%>
+                                                <input type="checkbox" value="<%=playlist.playlist_id%>" name="SongPlaylistName"><%=playlist.playlist_name%><br>
+                                                <%}})%>
+                                                <!--<input type="text" class="form-control input-sm duiqi" id="kindName" placeholder="">-->
                                             </div>
                                         </div>
 
@@ -457,8 +466,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button id="specie_miss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                <button onclick="addspecie()" type="button" class="btn btn-xs btn-green">保 存</button>
+                                <button id="SongPlaylistmiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="addSongPlaylist" type="button" class="btn btn-xs btn-green">保 存</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -473,15 +482,38 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="gridSystemModalLabel">修改种类</h4>
+                                <h4 class="modal-title" id="gridSystemModalLabel">修改歌曲</h4>
                             </div>
                             <div class="modal-body">
                                 <div class="container-fluid">
                                     <form class="form-horizontal">
                                         <div class="form-group ">
-                                            <label for="speciename" class="col-xs-3 control-label">种类名：</label>
+                                            <label for="alertMusicname" class="col-xs-3 control-label">歌曲名称：</label>
                                             <div class="col-xs-6 ">
-                                                <input type="text" class="form-control input-sm duiqi" id="speciename">
+                                                <input type="text" class="form-control input-sm duiqi" id="alertMusicname">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="alertMusicsinger" class="col-xs-3 control-label">歌手：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="alertMusicsinger">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="alertMusiclanguage" class="col-xs-3 control-label">语种：</label>
+                                            <div class="col-xs-6 ">
+                                                <input type="text" class="form-control input-sm duiqi" id="alertMusiclanguage">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="SongAlbum" class="col-xs-3 control-label">所属专辑：</label>
+                                            <div class="col-xs-6 ">
+                                                <select id="alertalbumName">
+                                                    <%album.forEach(function (albums) {%>
+                                                    <option value ="<%=albums.album_id%>"><%=albums.album_name%></option>
+                                                    <%})%>
+                                                </select>
+                                                <!--<input type="text" class="form-control input-sm duiqi" id="SongAlbum" placeholder="">-->
                                             </div>
                                         </div>
 
@@ -489,8 +521,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button id="speciemiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                <button id="alterspecie" type="button" class="btn btn-xs btn-green">保 存</button>
+                                <button id="alertMusicmiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="alertMusicsave" type="button" class="btn btn-xs btn-green">保 存</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -509,12 +541,12 @@
                             </div>
                             <div class="modal-body">
                                 <div class="container-fluid">
-                                    确定要删除该种类？删除后不可恢复！
+                                    确定要删除该歌曲？删除后不可恢复！
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button id="delespecie" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                <button id="deleteonclickspecie" type="button" class="btn btn-xs btn-danger">保 存</button>
+                                <button id="delemusicMiss" type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                <button id="delemusicSave" type="button" class="btn btn-xs btn-danger">保 存</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -1879,39 +1911,27 @@
         var formData = new FormData();
         var fileObj =file.files[0];
         formData.append("uploadImage", fileObj);
-
-
-
-        // formData.append("name", name);
-        // formData.append("label", label);
         console.log(formData);
         var url = "http://localhost:8088/upload";
         $.ajax({
             url: url,
             type: 'POST',
             data: formData,
-            // data:{name:name},
-
-            /**
-             * 必须false才会避开jQuery对 formdata 的默认处理
-             * XMLHttpRequest会对 formdata 进行正确的处理
-             */
             processData: false,
-            /**
-             *必须false才会自动加上正确的Content-Type
-             */
             contentType: false,
             success: function (responseStr) {
+                alert("图片上传成功");
                 console.log(responseStr.newPath);
                 pathsrc = responseStr.newPath;
 
             },
             error: function (responseStr) {
+                alert("图片上传失败");
                 console.log(responseStr.newPath);
                 pathsrc = responseStr.newPath;
             }
         });
-        $('#addPlaylistsave').click(function () {
+        $('#addPlaylistsave').unbind('click').click(function () {
             var addPlayName = document.getElementById('addPlayName');
             var addPlayLabel = document.getElementById('addPlayLabel');
             var  name = addPlayName.value;
@@ -1924,7 +1944,6 @@
             var xmlRequest1 = new XMLHttpRequest();
             xmlRequest1.open('get', 'http://localhost:8088/addPlaylist?name='+name+'&label='+label+'&pathsrc='+pathsrc+'&amount='+amount+'&collection='+collection,true);
             xmlRequest1.send();
-            // xmlRequest1.send(album);
             xmlRequest1.onreadystatechange = function () {
                 if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
                     var data = JSON.parse(xmlRequest1.responseText);
@@ -1943,7 +1962,7 @@
                             + '<div class="col-xs-2">'
                             + '<button onclick="alertPlaylist(' + data.id + ')"  class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSour" >修改</button> <button onclick="deletePlaylist(' + data.id + ')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSour">删除</button></div>';
                         selectPlaylist.appendChild(divrow);
-                        var miss = document.getElementById('addMvmiss');
+                        var miss = document.getElementById('addPlaylistmiss');
                         miss.click();
                     }
                 }
@@ -1951,13 +1970,11 @@
             var miss = document.getElementById('addPlaylistmiss');
             miss.click();
         });
-
-
     }
 
     //歌单删除
     function deletePlaylist(id) {
-        $('#deletePlaylistsave').click(function () {
+        $('#deletePlaylistsave').unbind('click').click(function () {
             var xmlRequest = new XMLHttpRequest();
             xmlRequest.open('post','http://localhost:8088/deletePlaylist',true);
             xmlRequest.send(id);
@@ -1973,54 +1990,38 @@
                     }
                 }
             }
-            // console.log(id);
-            // var miss = document.getElementById('deletePlaylistmiss');
-            // miss.click();
         });
     }
 
     //歌单修改
     function alertPlaylist(id) {
         var src ;
-        $('#Playlistchange').click(function () {
+        $('#Playlistchange').unbind('click').click(function () {
             var file = document.getElementById("fulAvatarPlaylist");
             var formDataPlaylist = new FormData();
             var fileObj =file.files[0];
-
-            // console.log(file);
             if(fileObj!=undefined) {
                 formDataPlaylist.append("uploadImage", fileObj);
-
-
                 var url = "http://localhost:8088/Playlistupload";
                 $.ajax({
                     url: url,
                     type: 'POST',
                     data: formDataPlaylist,
-
-                    /**
-                     * 必须false才会避开jQuery对 formdata 的默认处理
-                     * XMLHttpRequest会对 formdata 进行正确的处理
-                     */
                     processData: false,
-                    /**
-                     *必须false才会自动加上正确的Content-Type
-                     */
                     contentType: false,
                     success: function (responseStr) {
+                        alert("图片上传成功");
                         console.log("成功"+responseStr.newPath);
                         src =responseStr.newPath;
-
                     },
                     error: function (responseStr) {
+                        alert("图片上传失败");
                         console.log("失败"+responseStr.newPath);
                         src =responseStr.newPath;
                     }
                 });
             }
-
         });
-
         var xmlRequest = new XMLHttpRequest();
         xmlRequest.open('get','http://localhost:8088/selectPlaylistid?id='+id,true);
         xmlRequest.send();
@@ -2033,7 +2034,7 @@
                 var fulAvatarPlaylist = document.getElementById('fulAvatarPlaylist');
                 alertPlayName.setAttribute('placeholder',data.playlist.playlist_name);
                 alertPlayLabel.setAttribute('placeholder',data.playlist.playlist_label);
-                $('#alertPlaylistsave').click(function () {
+                $('#alertPlaylistsave').unbind('click').click(function () {
                     var playName = alertPlayName.value;
                     var playLabel = alertPlayLabel.value;
                     alertPlayName.value = '';
@@ -2057,13 +2058,11 @@
                         if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
                             var data1 = JSON.parse(xmlRequest1.responseText);
                             if(data1.result===1) {
-                                var class_id = document.getElementsByClassName('playlist'+id);
-                                $(class_id).remove();
-                                var selectPlaylist = document.getElementById('Playlist');
-                                var divrow = document.createElement('div');
-                                divrow.setAttribute('class','playlist'+id+' row');
+                                var divrow = document.getElementsByClassName('playlist'+id);
+                                console.log(divrow[0]);
+                                divrow[0].innerHTML = "";
 
-                                divrow.innerHTML = '<div title=' + playName + ' class="col-xs-3  omit">' + playName + '</div>'
+                                divrow[0].innerHTML = '<div title=' + playName + ' class="col-xs-3  omit">' + playName + '</div>'
                                     + '<div class="col-xs-2">'
                                     + '<img height="40px" src=' + src + ' alt="">'
                                     + '</div>'
@@ -2072,7 +2071,6 @@
                                     +'<div title=' + data.playlist.playlist_collection + ' class="col-xs-1  omit">' + data.playlist.playlist_collection + '</div>'
                                     + '<div class="col-xs-2">'
                                     + '<button onclick="alertPlaylist(' + id + ')"  class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSour" >修改</button> <button onclick="deletePlaylist(' + id + ')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSour">删除</button></div>';
-                                selectPlaylist.appendChild(divrow);
                                 var miss = document.getElementById('alertPlaylistmiss');
                                 miss.click();
                             }
@@ -2091,50 +2089,37 @@
         xmlRequest1.onreadystatechange=function () {
             if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
                 var song1 = JSON.parse(xmlRequest1.responseText);
-                var song = song1.data;
-                var song2 = song1.playlist;
-                var songlists = [];
-                for(var i=0;i<song.length;i++) {
-                    console.log(song[i].music_id);
-                    for(var j=0;j<song2.length;j++) {
-                        if(song[i].music_id==song2[j].music_id) {
-                            songlists.push({id:song[i].music_id,name:song2[j].playlist_name});
+                var music_id = song1.data;
+                var song_playlist = song1.playlist;
+                var playlist = [];
+                console.log("song1.playlist "+song_playlist[0]);
+                for (var i = 0; i < music_id.length; i++) {
+                    var str ='';
+                    for (var j = 0; j < song_playlist.length; j++) {
+                        if (music_id[i].music_id == song_playlist[j].id) {
+                            str = str + "&nbsp;&nbsp;" + song_playlist[j].playlist_name;
                         }
                     }
+                    playlist.push({id: music_id[i].music_id,music_name:music_id[i].music_name,singer:music_id[i].singer,language:music_id[i].singer,music_play: music_id[i].music_play,collection:music_id[i].collection,album_name:music_id[i].album_name,playlist: str})
                 }
-                console.log(songlists);
                 var Selectsong = document.getElementById('Selectsong');
                 Selectsong.innerHTML = '';
-
-                var songsshows = [];
-                for(var i=0;i<songlists.length;i++){
-                    var str = '';
-                    for(var j=i;j<songlists.length;j++){
-                        if(songlists[i].id==songlists[j].id){
-                            str = str+"&nbsp;&nbsp;"+songlists[j].name;
-                        }
-                    }
-                    if(songsshows[songlists[i].id]==null) {
-                        songsshows[songlists[i].id] = str;
-                    }
-                }
-                for(var i=0;i<song.length;i++){
-                    var songs = song1.playlist_name;
+                for(var i=0;i<playlist.length;i++){
                     var divrow = document.createElement('div');
-                    divrow.setAttribute('class','row');
-                    var  songlist = songsshows[song[i].album_id];
-                    if(songlist==null) {
+                    divrow.setAttribute('class', 'music' +  playlist[i].id + ' row');
+                    var  songlist = playlist[i].playlist;
+                    if(songlist=='') {
                         songlist = "暂无所属歌单";
                     }
-                    divrow.innerHTML = '<div title='+song[i].music_name+' class="col-xs-1  omit">'+song[i].music_name+'</div>'
-                        +'<div title='+song[i].singer+'  class="col-xs-1 omit">'+song[i].singer+'</div>'
-                        +'<div title='+song[i].language+'  class="col-xs-1 omit">'+song[i].language+'</div>'
-                        +'<div title='+song[i].music_play+'  class="col-xs-1 omit">'+song[i].music_play+'</div>'
-                        +'<div title='+song[i].collection+'  class="col-xs-1 omit">'+song[i].collection+'</div>'
-                        +'<div title='+song[i].album_name+'  class="col-xs-1 omit">'+song[i].album_name+'</div>'
-                        +'<div title='+songlist+'  class="col-xs-3 omit">'+songlist+'</div>'
+                    divrow.innerHTML = '<div title='+playlist[i].music_name+' class="col-xs-1  omit">'+playlist[i].music_name+'</div>'
+                        +'<div title='+playlist[i].singer+'  class="col-xs-1 omit">'+playlist[i].singer+'</div>'
+                        +'<div title='+playlist[i].language+'  class="col-xs-1 omit">'+playlist[i].language+'</div>'
+                        +'<div title='+playlist[i].music_play+'  class="col-xs-1 omit">'+playlist[i].music_play+'</div>'
+                        +'<div title='+playlist[i].collection+'  class="col-xs-1 omit">'+playlist[i].collection+'</div>'
+                        +'<div title='+playlist[i].album_name+'  class="col-xs-1 omit">'+playlist[i].album_name+'</div>'
+                        +'<div id="songlist'+ playlist[i].id+'" title='+songlist+'  class="col-xs-3 omit">'+songlist+'</div>'
                         +'<div class="col-xs-3">'
-                        +'<button  class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeChar" >修改</button> <button   class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChar">删除</button> <button   class="btn btn-success btn-xs" data-toggle="modal" data-target="#addPlaylist">添加歌单</button></div>';
+                        +'<button onclick="alertMusic(' + playlist[i].id + ')" class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeChar" >修改</button> <button  onclick="deleteMusic(' + playlist[i]._id + ')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChar">删除</button> <button  onclick="addSongMdusic(' + playlist[i].id + ')" class="btn btn-success btn-xs" data-toggle="modal" data-target="#addPlaylist">添加歌单</button></div>';
                     Selectsong.appendChild(divrow);
                 }
             }
@@ -2142,6 +2127,196 @@
     }
 
     //添加歌曲
+    function Songchange() {
+        var file = document.getElementById("fulAvatarSong");
+        var formData = new FormData();
+        var fileObj =file.files[0];
+        formData.append("uploadImage", fileObj);
+        var musicSrc;
+        var url = "http://localhost:8088/uploadSong";
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (responseStr) {
+                console.log("成功 "+responseStr.newPath);
+                musicSrc = responseStr.newPath;
+            },
+            error: function (responseStr) {
+                console.log("失败 "+responseStr.newPath);
+                musicSrc = responseStr.newPath;
+            }
+        });
+        $('#addmusicSave').unbind('click').click(function () {
+            var playlist_name_value = document.getElementById('playlist_name_value');
+            var index=playlist_name_value.selectedIndex ;
+            var ablum_name = playlist_name_value.options[index].text;
+            var SongName = document.getElementById('SongName');
+            var SingerName = document.getElementById('SingerName');
+            var SongLanguages = document.getElementById('SongLanguages');
+            var file = document.getElementById("fulAvatarSong");
+            var playlist_name = playlist_name_value.value;
+            var name = SongName.value;
+            var singer = SingerName.value;
+            var languages = SongLanguages.value;
+            SongName.value = '';
+            SingerName.value = '';
+            SongLanguages.value = '';
+            file.value = '';
+            var amount=Math.floor(Math.random()*45457+1215);
+            var collection=Math.floor(Math.random()*10000+254);
+            var xmlRequest1 = new XMLHttpRequest();
+            xmlRequest1.open('get', 'http://localhost:8088/addMusic?name='+name+'&singer='+singer+'&languages='+languages+'&amount='+amount+'&collection='+collection+'&musicSrc='+musicSrc+'&playlist_name='+playlist_name,true);
+            xmlRequest1.send();
+            xmlRequest1.onreadystatechange = function () {
+                if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                    var data = JSON.parse(xmlRequest1.responseText);
+                    console.log(data);
+                    if (data.result == 1) {
+                        var songlist = '暂无所属歌单';
+                        var Selectsong = document.getElementById('Selectsong');
+                        var divrow = document.createElement('div');
+                        divrow.setAttribute('class', 'music' + data.id + ' row');
+                        divrow.innerHTML = '<div title='+name+' class="col-xs-1  omit">'+name+'</div>'
+                            +'<div title='+singer+'  class="col-xs-1 omit">'+singer+'</div>'
+                            +'<div title='+languages+'  class="col-xs-1 omit">'+languages+'</div>'
+                            +'<div title='+amount+'  class="col-xs-1 omit">'+amount+'</div>'
+                            +'<div title='+collection+'  class="col-xs-1 omit">'+collection+'</div>'
+                            +'<div title='+ablum_name+'  class="col-xs-1 omit">'+ablum_name+'</div>'
+                            +'<div title='+songlist+'  class="col-xs-3 omit">'+songlist+'</div>'
+                            +'<div class="col-xs-3">'
+                            +'<button onclick="alertMusic(' + data.id + ')"  class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeChar" >修改</button> <button onclick="deleteMusic(' + data.id + ')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChar">删除</button> <button  onclick="addSongMdusic(' + data.id + ')" class="btn btn-success btn-xs" data-toggle="modal" data-target="#addPlaylist">添加歌单</button></div>';
+                        Selectsong.appendChild(divrow);
+                        var miss = document.getElementById('addmusicMiss');
+                        miss.click();
+                    }
+                }
+            }
+        });
+
+    }
+
+    //加入歌单
+    function addSongMdusic(id) {
+        console.log(id);
+        var checkbox = document.getElementsByName("SongPlaylistName");
+        check_val = [];
+        check_text = '';
+        $('#addSongPlaylist').unbind('click').click(function () {
+            for(k in checkbox){
+                if(checkbox[k].checked) {
+                    check_val.push(checkbox[k].value);
+                    check_text = check_text+"&nbsp;&nbsp;"+checkbox[k].nextSibling.nodeValue;
+                    checkbox[k].checked = false;
+                }
+            }
+            var xmlRequest1 = new XMLHttpRequest();
+            xmlRequest1.open('get', 'http://localhost:8088/addSongPlaylist?id='+id+'&check_val='+check_val,true);
+            xmlRequest1.send();
+            xmlRequest1.onreadystatechange = function () {
+                if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                    var data = JSON.parse(xmlRequest1.responseText);
+                    console.log(data);
+                    if (data.result == 1) {
+                        var playlists = document.getElementById('songlist'+id);
+                        playlists.innerHTML = '';
+                        playlists.innerHTML = check_text;
+                        var miss = document.getElementById('SongPlaylistmiss');
+                        miss.click();
+                    }
+                }
+            }
+        });
+    }
+
+    //歌曲删除
+    function deleteMusic(id) {
+        console.log(id);
+        $('#delemusicSave').unbind('click').click(function () {
+            var xmlRequest = new XMLHttpRequest();
+            xmlRequest.open('post','http://localhost:8088/deleteMusic',true);
+            xmlRequest.send(id);
+            xmlRequest.onreadystatechange=function () {
+                if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                    var data1 = JSON.parse(xmlRequest.responseText);
+                    var result = data1.result;
+                    if (result == 1) {
+                        var class_id = document.getElementsByClassName('music' + id);
+                        $(class_id).remove();
+                        var miss = document.getElementById('delemusicMiss');
+                        miss.click();
+                    }
+                }
+            }
+        });
+    }
+
+    //歌曲修改
+    function alertMusic(id) {
+        console.log(id);
+        var xmlRequest = new XMLHttpRequest();
+        xmlRequest.open('get','http://localhost:8088/selectMusicid?id='+id,true);
+        xmlRequest.send();
+        xmlRequest.onreadystatechange=function () {
+            if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                var data1 = JSON.parse(xmlRequest.responseText);
+                console.log(data1);
+                var alertMusicname = document.getElementById('alertMusicname');
+                alertMusicname.setAttribute('placeholder',data1.song.music_name);
+                var alertMusicsinger = document.getElementById('alertMusicsinger');
+                alertMusicsinger.setAttribute('placeholder',data1.song.singer);
+                var alertMusiclanguage = document.getElementById('alertMusiclanguage');
+                alertMusiclanguage.setAttribute('placeholder',data1.song.language);
+                var playlists = document.getElementById('songlist'+id);
+                $('#alertMusicsave').unbind('click').click(function () {
+                    var alertalbumName = document.getElementById('alertalbumName');
+                    var index=alertalbumName.selectedIndex ;
+                    var ablum_name = alertalbumName.options[index].text;
+                    var name = alertMusicname.value;
+                    var singer = alertMusicsinger.value;
+                    var language = alertMusiclanguage.value;
+                    var album_id = alertalbumName.value;
+                    alertMusicname.value = '';
+                    alertMusicsinger.value = '';
+                    alertMusiclanguage.value = '';
+                    if(name=='') {
+                        name = data1.song.music_name;
+                    }
+                    if(singer=='') {
+                        singer = data1.song.singer;
+                    }
+                    if(language=='') {
+                        language = data1.song.language;
+                    }
+                    var xmlRequest1 = new XMLHttpRequest();
+                    xmlRequest1.open('get','http://localhost:8088/alterMusicid?id='+id+'&name='+name+'&singer='+singer+'&language='+language+'&album_id='+album_id,true);
+                    xmlRequest1.send();
+                    xmlRequest1.onreadystatechange=function () {
+                        if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
+                            var data = JSON.parse(xmlRequest1.responseText);
+                            if(data.result===1) {
+                                var divrow = document.getElementsByClassName('music'+id);
+                                divrow[0].innerHTML = '';
+                                divrow[0].innerHTML = '<div title='+name+' class="col-xs-1  omit">'+name+'</div>'
+                                    +'<div title='+singer+'  class="col-xs-1 omit">'+singer+'</div>'
+                                    +'<div title='+language+'  class="col-xs-1 omit">'+language+'</div>'
+                                    +'<div title='+ data1.song.music_play+'  class="col-xs-1 omit">'+ data1.song.music_play+'</div>'
+                                    +'<div title='+ data1.song.collection+'  class="col-xs-1 omit">'+ data1.song.collection+'</div>'
+                                    +'<div title='+ ablum_name+'  class="col-xs-1 omit">'+ ablum_name+'</div>'
+                                    +'<div title='+playlists.title+'  class="col-xs-3 omit">'+playlists.title+'</div>'
+                                    +'<div class="col-xs-3">'
+                                    +'<button onclick="alertMusic(' + data1.song.music_id + ')" class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeChar" >修改</button> <button  onclick="deleteMusic(' + data1.song.music_id + ')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChar">删除</button> <button   class="btn btn-success btn-xs" data-toggle="modal" data-target="#addPlaylist">添加歌单</button></div>';
+                                var miss = document.getElementById('alertMusicmiss');
+                                miss.click();
+                            }
+                        }
+                    }
+                })
+            }
+        }
+    }
 
     //MV查询
     function Mv() {
@@ -2157,7 +2332,6 @@
                 for(var i=0;i<mv.length;i++){
                     var divrow = document.createElement('div');
                     divrow.setAttribute('class','mv'+mv[i].id+' row');
-
                     divrow.innerHTML = '<div title='+mv[i].name+' class="col-xs-2  omit">'+mv[i].name+'</div>'
                         +'<div title='+mv[i].infor+'  class="col-xs-4 omit">'+mv[i].infor+'</div>'
                         +'<div class="col-xs-4">'
@@ -2182,7 +2356,6 @@
         var address = mvaddress.value;
         xmlRequest1.open('get', 'http://localhost:8088/addMV?Name='+Name+'&Infor='+Infor+'&address='+address,true);
         xmlRequest1.send();
-        // xmlRequest1.send(album);
         mvName.value = '';
         mvInfor.value = '';
         mvaddress.value = '';
@@ -2194,7 +2367,6 @@
                     var selectMv = document.getElementById('selectMv');
                     var divrow = document.createElement('div');
                     divrow.setAttribute('class','mv'+data.id+' row');
-
                     divrow.innerHTML = '<div title='+Name+' class="col-xs-2  omit">'+Name+'</div>'
                         +'<div title='+Infor+'  class="col-xs-4 omit">'+Infor+'</div>'
                         +'<div class="col-xs-4">'
@@ -2212,8 +2384,7 @@
 
     //删除MV
     function Mvdelete(id) {
-        $('#deleMissSave').click(function () {
-
+        $('#deleMissSave').unbind('click').click(function () {
             var xmlRequest = new XMLHttpRequest();
             xmlRequest.open('post','http://localhost:8088/deleteMv',true);
             xmlRequest.send(id);
@@ -2247,8 +2418,7 @@
                 mvInfor.setAttribute('placeholder',data1.mv.infor);
                 var mvAdress = document.getElementById('mvalertAdress');
                 mvAdress.setAttribute('placeholder',data1.mv.src);
-                $('#alertMVsave').click(function () {
-
+                $('#alertMVsave').unbind('click').click(function () {
                     var name = mvName.value;
                     var infor = mvInfor.value;
                     var address = mvAdress.value;
@@ -2271,20 +2441,15 @@
                         if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
                             var data = JSON.parse(xmlRequest1.responseText);
                             if(data.result===1) {
-                                var class_id = document.getElementsByClassName('mv'+id);
-                                $(class_id).remove();
-                                var selectMv = document.getElementById('selectMv');
-                                var divrow = document.createElement('div');
-                                divrow.setAttribute('class','mv'+id+' row');
-
-                                divrow.innerHTML = '<div title='+name+' class="col-xs-2  omit">'+name+'</div>'
+                                var divrow = document.getElementsByClassName('mv'+id);
+                                divrow[0].innerHTML = '';
+                                divrow[0].innerHTML = '<div title='+name+' class="col-xs-2  omit">'+name+'</div>'
                                     +'<div title='+infor+'  class="col-xs-4 omit">'+infor+'</div>'
                                     +'<div class="col-xs-4">'
                                     +'<video class="col-xs-12" src='+address+' controls style="width:100px;height:70px;"></video>'
                                     +'</div>'
                                     +'<div class="col-xs-2">'
                                     +'<button onclick="Mvalert('+id+')"  class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser" >修改</button> <button onclick="Mvdelete('+id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">删除</button></div>';
-                                selectMv.appendChild(divrow);
                                 var miss = document.getElementById('alertMVmiss');
                                 miss.click();
                             }
@@ -2309,7 +2474,6 @@
                 for(var i=0;i<album.length;i++){
                     var divrow = document.createElement('div');
                     divrow.setAttribute('class','albums'+album[i].album_id+' row');
-
                     divrow.innerHTML = '<div title='+album[i].album_name+' class="col-xs-10  omit">'+album[i].album_name+'</div>'
                         +'<div class="col-xs-2">'
                         +'<button  class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseSchool" onclick="Albumalert('+album[i].album_id+')" >修改</button> <button  onclick="Albumdelete('+album[i].album_id+')" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSchool">删除</button></div>';
@@ -2339,19 +2503,16 @@
                         +'<div class="col-xs-2">'
                         +'<button  class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseSchool" onclick="Albumalert('+data.id+')">修改</button> <button onclick="Albumdelete('+data.id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSchool">删除</button></div>';
                     selectAlbum.appendChild(divrow);
-
                     var miss = document.getElementById('missAlbum');
                     miss.click();
                 }
             }
         }
-
     }
 
     //删除专辑
     function Albumdelete(id) {
-        $('#saveAlbumdele').click(function () {
-
+        $('#saveAlbumdele').unbind('click').click(function () {
             var xmlRequest = new XMLHttpRequest();
             xmlRequest.open('post','http://localhost:8088/deleteAlbum',true);
             xmlRequest.send(id);
@@ -2372,8 +2533,6 @@
 
     //修改专辑
     function Albumalert(id) {
-        // console.log(id);
-
         var xmlRequest = new XMLHttpRequest();
         xmlRequest.open('get','http://localhost:8088/selectAlbumid?id='+id,true);
         xmlRequest.send();
@@ -2383,8 +2542,7 @@
                 var AlbumName = document.getElementById('AlbumName');
                 AlbumName.setAttribute('placeholder',data1.album);
                 AlbumName.value = '';
-                $('#alertAlbumsave').click(function () {
-
+                $('#alertAlbumsave').unbind('click').click(function () {
                     var name = AlbumName.value;
                     if(name=='') {
                         name = data1.album;
@@ -2396,15 +2554,11 @@
                         if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
                             var data = JSON.parse(xmlRequest1.responseText);
                             if(data.result===1) {
-                                var class_id = document.getElementsByClassName('albums'+id);
-                                $(class_id).remove();
-                                var selectAlbum = document.getElementById('selectAlbum');
-                                var divrow = document.createElement('div');
-                                divrow.setAttribute('class','albums'+id+' row');
-                                divrow.innerHTML = '<div class="col-xs-10">'+name+'</div>'
+                                var divrow = document.getElementsByClassName('albums'+id);
+                                divrow[0].innerHTML = '';
+                                divrow[0].innerHTML = '<div class="col-xs-10">'+name+'</div>'
                                     +'<div class="col-xs-2">'
                                     +'<button  class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseSchool" onclick="Albumalert('+id+')">修改</button> <button onclick="Albumdelete('+id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSchool">删除</button></div>';
-                                selectAlbum.appendChild(divrow);
                                 var miss = document.getElementById('alertAlbummiss');
                                 miss.click();
                             }
@@ -2415,103 +2569,5 @@
         }
     }
 
-
-
-
-    function addspecie() {
-        var kindName = document.getElementById('kindName');
-        var xmlRequest1 = new XMLHttpRequest();
-        xmlRequest1.open('get','http://localhost:8088/addMusicitem?name='+kindName.value,true);
-        xmlRequest1.send();
-        xmlRequest1.onreadystatechange=function () {
-            if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
-                var data1 = JSON.parse(xmlRequest1.responseText);
-                if(data1.result==1) {
-
-                    var species_insert = document.getElementById('species_insert');
-                    var divrow = document.createElement('div');
-                    divrow.setAttribute('class','species'+data1.id+' row');
-                    divrow.innerHTML = '<div class="col-xs-4 ">'+data1.id+'</div>'
-                        +'<div class="col-xs-6">'+data1.name+'</div>'
-                        +'<div class="col-xs-2">'
-                        +'<button onclick="speciexg('+data1.id+')" class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeChar" >修改</button> <button onclick="speciedelete('+data1.id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChar">删除</button></div>';
-                    species_insert.appendChild(divrow);
-                    var miss = document.getElementById('specie_miss');
-                    miss.click();
-
-                }
-                // console.log(data1);
-            }
-        }
-    }
-
-    function speciedelete(id) {
-        var Specie = id;
-
-        $('#deleteonclickspecie').click(function () {
-            var xmlRequest = new XMLHttpRequest();
-            xmlRequest.open('get','http://localhost:8088/deletespecie?id='+id,true);
-            xmlRequest.send();
-            xmlRequest.onreadystatechange=function () {
-                if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
-                    var data1 = JSON.parse(xmlRequest.responseText);
-                    var result = data1.result;
-                    if(result==1){
-
-                        var class_id = document.getElementsByClassName('species'+Specie);
-                        $(class_id).remove();
-                        var miss = document.getElementById('delespecie');
-                        miss.click();
-                    }
-                }
-            }
-
-        })
-    }
-
-    function speciexg(id) {
-        // console.log(id);
-        // var alterspecie = document.getElementById('alterspecie');
-        var xmlRequest = new XMLHttpRequest();
-        xmlRequest.open('get','http://localhost:8088/selectspecieid?id='+id,true);
-        xmlRequest.send();
-        xmlRequest.onreadystatechange=function () {
-            if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
-                var data1 = JSON.parse(xmlRequest.responseText);
-                var speciename = document.getElementById('speciename');
-                speciename.setAttribute('placeholder',data1.species_name);
-                speciename.value = '';
-                $('#alterspecie').click(function () {
-
-                    var name = speciename.value;
-                    if(name=='') {
-                        name = data1.species_name;
-                    }
-                    var xmlRequest1 = new XMLHttpRequest();
-                    xmlRequest1.open('get','http://localhost:8088/alterspecieid?id='+id+'&name='+name,true);
-                    xmlRequest1.send();
-                    xmlRequest1.onreadystatechange=function () {
-                        if (xmlRequest1.readyState == 4 && xmlRequest1.status == 200) {
-                            var data = JSON.parse(xmlRequest1.responseText);
-                            if(data.result===1) {
-                                var class_id = document.getElementsByClassName('species'+id);
-                                $(class_id).remove();
-                                var species_insert = document.getElementById('species_insert');
-                                var divrow = document.createElement('div');
-                                divrow.setAttribute('class','species'+id+' row');
-                                divrow.innerHTML = '<div class="col-xs-4 ">'+id+'</div>'
-                                    +'<div class="col-xs-6">'+name+'</div>'
-                                    +'<div class="col-xs-2">'
-                                    +'<button onclick="speciexg('+id+')" class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeChar" >修改</button> <button onclick="speciedelete('+id+')"  class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChar">删除</button></div>';
-                                species_insert.appendChild(divrow);
-                                var miss = document.getElementById('speciemiss');
-                                miss.click();
-                            }
-                        }
-                    }
-                })
-            }
-        }
-    }
 </script>
 </html>
